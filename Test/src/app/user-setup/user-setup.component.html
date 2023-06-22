@@ -1,0 +1,30 @@
+
+
+<h2>Price Comparator</h2>
+
+<input type="text"
+       class="input"
+       placeholder="Enter Zip Code"
+       [(ngModel)]="zipcode">
+<button (click)="getStores()" type="button" name="button">Submit</button>
+
+<br>
+<br>
+
+<mat-form-field>
+  <mat-label>Select Stores</mat-label>
+  <mat-select [formControl]="selectedStores" multiple>
+    <mat-option *ngFor="let store of dropdownMenuStores" [value]="store">{{store.id}}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<button (click)="getCheapestPrice()" type="button" name="button">Confirm Stores</button>
+
+
+<!--
+<select name="store" >
+  <option *ngFor='let store of stores'>
+    {{ store.id }}
+  </option>
+</select>
+-->
