@@ -1,4 +1,11 @@
-Code Milestone 1 Release Note
+<h1>Price Comparator</h1>
+This application will allow a user to make a grocery list and inform the user which store has the 
+cheapest price for each product in the user's grocery list. In order to accomplish this the user will provide 
+a set of stores they shop at and a list of products they want to buy. Using the provided
+list of stores, the application will find which stores have the cheapest price for
+each of the products.
+
+Code Milestone 1 Release Notes
 
 <br>
 <br>
