@@ -2,15 +2,34 @@
 
 <h2>Price Comparator</h2>
 
-<input type="text"
-       class="input"
-       placeholder="Enter Zip Code"
-       [(ngModel)]="zipcode">
-<button (click)="getStores()" type="button" name="button">Submit</button>
+<input type = "text" placeholder="Zip Code" [formControl]="zipcodeControl">
 
 <br>
 <br>
 
+<mat-button-toggle-group multiple>
+  <mat-button-toggle>
+    <img src="/assets/walmart_logo.png">
+  </mat-button-toggle>
+  <mat-button-toggle>
+    <img src="/assets/target_logo.png">
+  </mat-button-toggle>
+</mat-button-toggle-group>
+
+
+<!--
+<br>
+<mat-form-field>
+  <mat-label>Supported Stores</mat-label>
+  <mat-select [formControl]="selectedStoreTypes" multiple>
+    <mat-option *ngFor="let storeType of supportedStoreTypes" [value]="storeType">{{storeType}}</mat-option>
+  </mat-select>
+</mat-form-field>
+-->
+
+<button (click)="getStores()" mat-fab>Confirm</button>
+
+<!--
 <mat-form-field>
   <mat-label>Select Stores</mat-label>
   <mat-select [formControl]="selectedStores" multiple>
@@ -19,12 +38,4 @@
 </mat-form-field>
 
 <button (click)="getCheapestPrice()" type="button" name="button">Confirm Stores</button>
-
-
-<!--
-<select name="store" >
-  <option *ngFor='let store of stores'>
-    {{ store.id }}
-  </option>
-</select>
 -->
