@@ -1,7 +1,7 @@
 <h2>Shopping List</h2>
 <div class="product-container">
     <div class="product" *ngFor="let product of products; let i = index">
-        <img src="product{{ i + 1 }}-image-placeholder.jpg" alt="Product Image">
+        <img src="/assets/product{{i + 1}}-image-placeholder.jpg" alt="Product Image">
         <p>{{ product.name }}</p>
         <button (click)="addToShoppingList(product)">Add</button>
       </div>
@@ -10,3 +10,5 @@
 <ul>
   <li *ngFor="let item of shoppingList">{{ item.name }} (Count: {{ item.count }})</li>
 </ul>
+
+
