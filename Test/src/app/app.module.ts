@@ -10,6 +10,7 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatButtonModule} from "@angular/material/button";
 import {MatListModule} from "@angular/material/list";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {MatStepperModule} from "@angular/material/stepper";
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
         MatButtonModule,
         MatListModule,
         MatButtonToggleModule,
+        MatStepperModule,
     ],
   providers: [],
   exports: [

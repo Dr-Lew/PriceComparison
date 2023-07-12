@@ -1,11 +1,12 @@
 import {Component} from '@angular/core';
-import {FormControl} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 import {User} from "../models/user.model";
 import {TargetService} from "../services/target.service";
 import {Store} from "../models/store.model";
 import {StoreType} from "../models/storeTypes";
 import {Address} from "../models/address.model";
+import {WalmartService} from "../services/walmart.service";
 
 @Component({
   selector: 'app-user-setup',
@@ -14,29 +15,46 @@ import {Address} from "../models/address.model";
 })
 
 export class UserSetupComponent {
-  user: User;
+  user: User | null = null;
 
-  zipcodeControl  = new FormControl('');
+  zipcodeCtrl:        FormControl<string | null>   = new FormControl('', Validators.required);
+  storesCtrl:         FormControl<string[] | null> = new FormControl([], Validators.required);
+  storeLocationsCtrl: FormControl<Store[] | null>  = new FormControl([], Validators.required);
+
+  zipcodeFormGroup      = this.formBuilder.group({
+    zipcodeCtrl: this.zipcodeCtrl
+  });
+  storesFormGroup        = this.formBuilder.group({
+    storesCtrl: this.storesCtrl
+  });
+  storeLocationsFormGroup = this.formBuilder.group({
+    storeLocationsCtrl: this.storeLocationsCtrl
+  });
+
   supportedStoreTypes = ['Walmart', 'Target'];
-
-  selectedStoreTypes= new FormControl([]);
-  dropdownMenuStores: Store[] = [];
-  selectedStores = new FormControl([]);
+  storeLocations: Store[] = [];
 
 
-  constructor() {
-    this.user = new User();
+  constructor(private formBuilder: FormBuilder, private targetService: TargetService,
+              private walmartService: WalmartService) {
   }
   async getStores() {
-    let targetService = new TargetService();
-    let zipcode = this.zipcodeControl.getRawValue();
-    console.log(zipcode);
-    // if (zipcode != null) {
-    //   this.dropdownMenuStores = await targetService.getStores(zipcode);
-    // }
-    // for (let s of this.dropdownMenuStores) {
-    //   console.log(s.id);
-    // }
+    let zipcode = this.zipcodeFormGroup.controls.zipcodeCtrl.getRawValue();
+    let selectedStores = this.storesFormGroup.controls.storesCtrl.value;
+
+    if (selectedStores != null && zipcode != null) {
+      for (let i = 0; i < selectedStores.length; i++) {
+        if(selectedStores[i] === 'Walmart') {
+          this.storeLocations = this.storeLocations.concat(this.walmartService.getStores(zipcode));
+        } else if (selectedStores[i] === 'Target') {
+          this.storeLocations = this.storeLocations.concat(await this.targetService.getStores(zipcode));
+        }
+      }
+    }
+
+    for (let s of this.storeLocations) {
+      console.log(s.id);
+    }
   }
 
 
@@ -63,4 +81,15 @@ export class UserSetupComponent {
   //   console.log(min_store.id);
   //   console.log(min_price);
   // }
+
+  submit() {
+    let stores: Store[] | null = this.storeLocationsCtrl.value;
+    if (stores != null) { // Should always be true
+      this.user = new User(stores);
+    } else {
+      console.log('UserSetupComponent.submit(): Stores is null. This should never happen.')
+    }
+
+    //Transfer Control to the grocery list component
+  }
 }
