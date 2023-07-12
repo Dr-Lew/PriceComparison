@@ -1,5 +1,5 @@
-import {Component, forwaredRef} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {Component, forwardRef} from '@angular/core';
+import {FormBuilder, FormControl, Validators, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 import {User} from "../models/user.model";
 import {TargetService} from "../services/target.service";
@@ -75,7 +75,7 @@ export class UserSetupComponent {
     }
     //Transfer control to the grocery list component
   }
-  
+
   getCheapestPrices(){
     for(let i = 0; i < this.items.length;i++){
       this.getCheapestPrice(this.items[i])
@@ -84,7 +84,7 @@ export class UserSetupComponent {
 
   async getCheapestPrice(item : Item) {
     let targetService = new TargetService();
-    let stores = this.selectedStores.getRawValue();
+    let stores = this.storeLocationsCtrl.value;
 
     //Some absurd price
     let min_price: number = 10000;
