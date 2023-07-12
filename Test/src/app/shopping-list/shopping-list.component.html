@@ -1,7 +1,10 @@
 <h2>Shopping List</h2>
+
+<input type="text" [(ngModel)]="searchQuery" placeholder="Search" />
+<button (click)="submit()" type="button" name="button">Submit</button>
 <div class="product-container">
     <div class="product" *ngFor="let product of products; let i = index">
-        <img src="/assets/product{{i + 1}}-image-placeholder.jpg" alt="Product Image" width="50%" height="50%">
+        <img src="/assets/{{ product.name }}-image-placeholder.jpg" alt="Product Image" width="50%" height="50%">
         <p>{{ product.name }}</p>
         <button (click)="addToShoppingList(product)">Add</button>
       </div>
@@ -10,5 +13,3 @@
 <ul>
   <li *ngFor="let item of shoppingList">{{ item.name }} (Count: {{ item.count }})</li>
 </ul>
-
-
