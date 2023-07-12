@@ -13,3 +13,11 @@ like to shop at. Once the user has confirmed their stores, the application finds
 store that has the cheapest price for a test product (in this case a 12 pack of coca-cola).
 We have accomplished what we wanted to accomplish for milestone 1. The only difference is
 that we went with Target instead of Walmart due to difficulties with the Walmart API.
+
+<h2>Code Milestone 2 Release Notes</h2>
+
+Milestone two is focused on connecting User Interface with API of groceries stores. Our
+UI has test products with images, with user could choose from the list of products directly 
+or use a research button, which should help to navigate to correct item quicker. Our web app
+got a shopping list. Our user could press "Add" button and you could see the name of 
+product and quantity of them.
