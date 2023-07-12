@@ -4,8 +4,8 @@ cheapest price for each product in the user's grocery list. In order to accompli
 a set of stores they shop at and a list of products they want to buy. Using the provided
 list of stores, the application will find which stores have the cheapest price for
 each of the products.
-
-Code Milestone 1 Release Notes
+<br>
+<h2>Code Milestone 1 Release Notes</h2>
 
 <br>
 <br>
