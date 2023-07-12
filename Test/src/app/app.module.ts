@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { UserSetupComponent } from './user-setup/user-setup.component';
@@ -11,7 +11,7 @@ import {MatSelectModule} from "@angular/material/select";
 @NgModule({
   declarations: [
     AppComponent,
-    UserSetupComponent
+    UserSetupComponent,
   ],
   imports: [
     BrowserModule,
@@ -21,7 +21,9 @@ import {MatSelectModule} from "@angular/material/select";
     MatInputModule,
     MatSelectModule,
   ],
-  providers: [],
+  providers: [
+    Title
+  ],
   exports: [
     UserSetupComponent
   ],

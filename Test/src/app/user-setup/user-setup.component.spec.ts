@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UserSetupComponent } from './user-setup.component';
+import { CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {FormsModule} from '@angular/forms';
+
 
 describe('UserSetupComponent', () => {
   let component: UserSetupComponent;
@@ -8,8 +11,10 @@ describe('UserSetupComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [UserSetupComponent]
-    });
+      declarations: [UserSetupComponent],
+      imports:[FormsModule],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    }).compileComponents();
     fixture = TestBed.createComponent(UserSetupComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
