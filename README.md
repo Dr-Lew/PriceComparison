@@ -4,11 +4,8 @@ cheapest price for each product in the user's grocery list. In order to accompli
 a set of stores they shop at and a list of products they want to buy. Using the provided
 list of stores, the application will find which stores have the cheapest price for
 each of the products.
-<br>
-<h2>Code Milestone 1 Release Notes</h2>
 
-<br>
-<br>
+<h2>Code Milestone 1 Release Notes</h2>
 
 Milestone one is focused on getting the zipcode from the user and displaying the
 Target stores in the given zip code. The user then selects which stores they would 
