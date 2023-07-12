@@ -14,6 +14,7 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
   declarations: [
     AppComponent,
     UserSetupComponent,
+    ShoppingListComponent,
   ],
   imports: [
     BrowserModule,
