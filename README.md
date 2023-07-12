@@ -16,8 +16,8 @@ that we went with Target instead of Walmart due to difficulties with the Walmart
 
 <h2>Code Milestone 2 Release Notes</h2>
 
-Milestone two is focused on connecting User Interface with API of groceries stores. Our
-UI has test products with images, with user could choose from the list of products directly 
-or use a research button, which should help to navigate to correct item quicker. Our web app
-got a shopping list. Our user could press "Add" button and you could see the name of 
+Milestone two is focused on connecting User Interface with API of grocery stores. Our
+UI has test products with images, which the user could choose from the list of products directly 
+or use a search button. That should help to navigate an user to the correct item quicker. Our web app
+includes a shopping list. Our user could press "Add" button and you could see the name of the
 product and quantity of them.
