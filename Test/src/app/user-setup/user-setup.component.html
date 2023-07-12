@@ -4,7 +4,9 @@
 
 <input type="text"
        class="input"
+       name="ZipEnter"
        placeholder="Enter Zip Code"
+       ngDefaultControl
        [(ngModel)]="zipcode">
 <button (click)="getStores()" type="button" name="button">Submit</button>
 
@@ -18,7 +20,7 @@
   </mat-select>
 </mat-form-field>
 
-<button (click)="getCheapestPrice()" type="button" name="button">Confirm Stores</button>
+<button (click)="getCheapestPrices()" type="button" name="button">Confirm Stores</button>
 
 
 <!--

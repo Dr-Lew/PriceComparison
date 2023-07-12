@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { UserSetupComponent } from './user-setup/user-setup.component';
@@ -14,7 +14,6 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
   declarations: [
     AppComponent,
     UserSetupComponent,
-    ShoppingListComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +23,9 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
     MatInputModule,
     MatSelectModule,
   ],
-  providers: [],
+  providers: [
+    Title
+  ],
   exports: [
     UserSetupComponent
   ],
