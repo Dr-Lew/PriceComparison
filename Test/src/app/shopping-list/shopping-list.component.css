@@ -1,0 +1,15 @@
+.product-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .product {
+    text-align: center;
+    margin: 10px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
