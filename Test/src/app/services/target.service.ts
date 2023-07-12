@@ -27,8 +27,6 @@ export class TargetService {
       }
     };
 
-    // This code works, but I don't want to keep calling it over and over, wasting API calls
-
     try {
       const response = await fetch(url, options);
       const result = await response.text();
