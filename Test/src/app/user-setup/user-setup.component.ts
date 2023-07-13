@@ -9,6 +9,7 @@ import {Item} from '../models/item.model';
 import {Address} from "../models/address.model";
 import {WalmartService} from "../services/walmart.service";
 import { Database } from 'src/assets/Database';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-user-setup',
@@ -42,7 +43,7 @@ export class UserSetupComponent {
   items: Item[] = [];
 
   constructor(private formBuilder: FormBuilder, private targetService: TargetService,
-              private walmartService: WalmartService) {
+              private walmartService: WalmartService, private router: Router) {
     const db = new Database;
     this.items = db.getDatabaseofItems();
   }
@@ -74,6 +75,7 @@ export class UserSetupComponent {
       console.log('UserSetupComponent.submit(): Stores is null. This should never happen.')
     }
     //Transfer control to the grocery list component
+    this.router.navigateByUrl('/shoppingList');
   }
 
   getCheapestPrices(){
