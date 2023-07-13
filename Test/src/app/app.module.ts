@@ -13,6 +13,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatListModule} from "@angular/material/list";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatStepperModule} from "@angular/material/stepper";
+import { AppRoutingModule } from './app-routing.module';
 
 
 
@@ -34,6 +35,7 @@ import {MatStepperModule} from "@angular/material/stepper";
         MatListModule,
         MatButtonToggleModule,
         MatStepperModule,
+        AppRoutingModule,
     ],
   providers: [
     Title
