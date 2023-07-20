@@ -4,11 +4,7 @@ import {FormBuilder, FormControl, Validators, NG_VALUE_ACCESSOR} from '@angular/
 import {User} from "../models/user.model";
 import {TargetService} from "../services/target.service";
 import {Store} from "../models/store.model";
-import {StoreType} from "../models/storeTypes";
-import {Item} from '../models/item.model';
-import {Address} from "../models/address.model";
 import {WalmartService} from "../services/walmart.service";
-import { Database } from 'src/assets/Database';
 import {Router} from "@angular/router";
 
 @Component({
@@ -21,6 +17,14 @@ import {Router} from "@angular/router";
         multi: true } ]
 })
 
+/**
+ * The UserSetupComponent represents the first and necessary step before a user can begin shopping.
+ * This component ultimately retrieves the stores the user shops at. This is done through the following steps:
+ *  1) Gets a zipcode from the user.
+ *  2) Gets the stores they shop at.
+ *  3) Displays the store locations to the user.
+ *  4) Gets the store locations the user shops at.
+ */
 export class UserSetupComponent {
   user: User | null = null;
 
@@ -40,14 +44,15 @@ export class UserSetupComponent {
 
   supportedStoreTypes = ['Walmart', 'Target'];
   storeLocations: Store[] = [];
-  items: Item[] = [];
 
   constructor(private formBuilder: FormBuilder, private targetService: TargetService,
               private walmartService: WalmartService, private router: Router) {
-    const db = new Database;
-    this.items = db.getDatabaseofItems();
   }
 
+  /**
+   * The getStores() function uses the values in the zipcode and the selectedStores variables to retrieve the
+   * store locations.
+   */
   async getStores() {
     let zipcode = this.zipcodeFormGroup.controls.zipcodeCtrl.getRawValue();
     let selectedStores = this.storesFormGroup.controls.storesCtrl.value;
@@ -67,6 +72,10 @@ export class UserSetupComponent {
     }
   }
 
+  /**
+   * The submit() method sets up a new user object with their store preferences and transfers control to the
+   * ShoppingListComponent.
+   */
   submit() {
     let stores: Store[] | null = this.storeLocationsCtrl.value;
     if (stores != null) { // Should always be true
@@ -76,34 +85,5 @@ export class UserSetupComponent {
     }
     //Transfer control to the grocery list component
     this.router.navigateByUrl('/shoppingList');
-  }
-
-  getCheapestPrices(){
-    for(let i = 0; i < this.items.length;i++){
-      this.getCheapestPrice(this.items[i])
-    }
-  }
-
-  async getCheapestPrice(item : Item) {
-    let targetService = new TargetService();
-    let stores = this.storeLocationsCtrl.value;
-
-    //Some absurd price
-    let min_price: number = 10000;
-    let min_store: Store = new Store(-1, new Address('','','',''), StoreType.Walmart);
-
-    if (stores) {
-      for (let i = 0; i < stores.length; ++i) {
-        let curr_store: Store = stores[i];
-        let curr_price = await targetService.getCost(item.upc, curr_store.id.toString());
-        if (curr_price < min_price) {
-          min_price = curr_price;
-          min_store = curr_store;
-        }
-      }
-    }
-    console.log("Cheapest Place to find " + item.name)
-    console.log("Store: " + min_store.id);
-    console.log("Item: " + min_price);
   }
 }
