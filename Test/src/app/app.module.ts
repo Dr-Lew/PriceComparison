@@ -14,6 +14,8 @@ import {MatListModule} from "@angular/material/list";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatStepperModule} from "@angular/material/stepper";
 import { AppRoutingModule } from './app-routing.module';
+import {MatGridListModule} from "@angular/material/grid-list";
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 
 
@@ -22,9 +24,10 @@ import { AppRoutingModule } from './app-routing.module';
     AppComponent,
     UserSetupComponent,
     ShoppingListComponent,
+    ShoppingCartComponent,
   ],
-  
-  imports: [
+
+    imports: [
         BrowserModule,
         FormsModule,
         ReactiveFormsModule,
@@ -36,6 +39,7 @@ import { AppRoutingModule } from './app-routing.module';
         MatButtonToggleModule,
         MatStepperModule,
         AppRoutingModule,
+        MatGridListModule,
     ],
   providers: [
     Title
