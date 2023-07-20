@@ -10,6 +10,11 @@ interface Product {
   templateUrl: './shopping-list.component.html',
   styleUrls: ['./shopping-list.component.css']
 })
+
+/**
+ * The ShoppingListComponent represents the grocery shopping page of the application. It is responsible for
+ * displaying the set of products in the database and adding products to the user's shopping cart.
+ */
 export class ShoppingListComponent {
   searchQuery: string = "";
   products: Product[] = [
@@ -41,5 +46,5 @@ export class ShoppingListComponent {
       this.filteredProductsList = this.products;
     }
   }
-  
+
 }
