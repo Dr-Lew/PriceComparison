@@ -4,6 +4,10 @@ import {Product} from "../models/product.model";
 @Injectable({
   providedIn: 'root'
 })
+
+/**
+ * The DatabaseService class provided functions for invoking the database behind the price comparison application.
+ */
 export class DatabaseService {
 
   prodDb: Product[] = [];
