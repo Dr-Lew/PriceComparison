@@ -7,12 +7,21 @@ import {StoreType} from "../models/storeTypes";
   providedIn: 'root'
 })
 
+/**
+ * The TargetService class provides functions for interacting with the Target API.
+ */
 export class TargetService {
 
   constructor() {
     console.log("Target Service: constructor() invoked");
   }
 
+
+  /**
+   * The getStores() function takes a zip code and returns a list of stores near that zip code.
+   *
+   * @param zipCode the zip code to use to find stores nearby.
+   */
   async getStores(zipCode: string)  {
     console.log('Target Service: getStores() invoked');
 
@@ -49,6 +58,12 @@ export class TargetService {
     return stores;
   }
 
+  /**
+   * The getCost method gets the cost of an item from a store.
+   *
+   * @param upc the upc of the item.
+   * @param storeId the store to search the price of the item.
+   */
   async getCost(upc: string, storeId: string) {
     const url = 'https://target1.p.rapidapi.com/products/search-by-barcode?store_id=' + storeId + '&barcode=' + upc;
     const options = {

@@ -6,6 +6,10 @@ import {Address} from "../models/address.model";
 @Injectable({
   providedIn: 'root'
 })
+
+/**
+ * The WalmartService class provides functions to invoke the Walmart API.
+ */
 export class WalmartService {
 
   constructor() { }
