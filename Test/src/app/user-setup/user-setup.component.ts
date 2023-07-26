@@ -6,7 +6,6 @@ import {TargetService} from "../services/target.service";
 import {Store} from "../models/store.model";
 import {WalmartService} from "../services/walmart.service";
 import {Router} from "@angular/router";
-import {Database} from "../Database";
 
 @Component({
   selector: 'app-user-setup',

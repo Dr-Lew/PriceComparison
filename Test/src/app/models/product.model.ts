@@ -6,6 +6,7 @@ import {Store} from "./store.model";
  * the product.
  */
 export class Product {
+  cat:      string;
   name:     string;
   upc:      string;
   image:    string;
@@ -13,7 +14,8 @@ export class Product {
   quantity: number;
   //store:    Store | null;
 
-  constructor(name: string, upc: string,image: string) {
+  constructor(cat: string,name: string, upc: string,image: string) {
+    this.cat = cat;
     this.name = name;
     this.upc = upc;
     this.image = image;

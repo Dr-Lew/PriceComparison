@@ -15,12 +15,13 @@ import {Router} from "@angular/router";
  * displaying the set of products in the database and adding products to the user's shopping cart.
  */
 export class ShoppingListComponent {
-  db = Database;
+  db =  new Database;
   cart = ShoppingCartComponent;
   searchQuery: string = "";
-  filteredProductsList = Database.getDatabaseofItems(); //Load Products from Database
+  filteredProductsList = this.db.getDatabaseofItems(); //Load Products from Database
 
   constructor(private router: Router){
+    this.db.loadCSV();
 
   }
 
@@ -34,7 +35,7 @@ export class ShoppingListComponent {
 
 
   submit() {
-    this.filteredProductsList = Database.getDatabaseofItems().filter(product => product.name.toLowerCase().includes(this.searchQuery.toLowerCase()));
+    this.filteredProductsList = this.db.getDatabaseofItems().filter(product => product.name.toLowerCase().includes(this.searchQuery.toLowerCase()));
   }
 
   checkout(){
