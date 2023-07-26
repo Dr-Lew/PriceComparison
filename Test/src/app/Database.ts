@@ -25,7 +25,7 @@ export class Database{
    //Loads our data csv file into an array of arrays
    loadCSV(){
       const papa: Papa = new Papa();
-      papa.parse("/assets/test-data.csv",{download: true, complete:(result) => {
+      papa.parse("/assets/product-database.csv",{download: true, complete:(result) => {
          this.createProducts(result);
 
          }
