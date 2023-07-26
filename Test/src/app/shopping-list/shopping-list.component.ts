@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-
-interface Product {
-  name: string;
-  count: number;
-}
+import { Database} from "../Database";
+import { Product } from '../models/product.model';
+import { ShoppingCartComponent } from '../shopping-cart/shopping-cart.component';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-shopping-list',
@@ -16,35 +15,51 @@ interface Product {
  * displaying the set of products in the database and adding products to the user's shopping cart.
  */
 export class ShoppingListComponent {
+  db = Database;
+  cart = ShoppingCartComponent;
   searchQuery: string = "";
-  products: Product[] = [
-    { name: 'cocacola', count: 0 },
-    { name: 'doritoes', count: 0 },
-    { name: 'jif', count: 0 },
-    { name: 'lays', count: 0 },
-    { name: 'bread', count: 0 }
-  ];
-  shoppingList: Product[] = [];
-  filteredProductsList = this.products; // Set the filtered products = to all of the products.
+  filteredProductsList = Database.getDatabaseofItems(); //Load Products from Database
+
+  constructor(private router: Router){
+
+  }
+
+  selectedCategory: string = 'Select a category';
+  
+  filterProductsByCategory(): void {
+    if (this.selectedCategory === 'Select a category') {
+      this.filteredProductsList = Database.getDatabaseofItems();
+    } else {
+      this.filteredProductsList = Database.getDatabaseofItems().filter(product => product.category === this.selectedCategory);
+    }
+  }
+
+  // Call this method whenever the category is selected in the dropdown
+  onCategorySelected(event: Event): void {
+    this.selectedCategory = (event.target as HTMLSelectElement).value;
+    this.filterProductsByCategory();
+  }
 
   addToShoppingList(product: Product): void {
-    const existingProduct = this.shoppingList.find(p => p.name === product.name);
-    if (existingProduct) {
-      existingProduct.count++;
-    } else {
-      const newProduct: Product = { ...product, count: 1 };
-      this.shoppingList.push(newProduct);
-    }
+    product.quantity++;
+     if (!ShoppingCartComponent.shoppingCart.find(p => p.name === product.name)) {
+      ShoppingCartComponent.shoppingCart.push(product);
   }
+}
+
+
 
   submit() {
-    //console.log(this.searchQuery);
-    if (this.searchQuery) { // If a search term was entered, set filtered products to the matching products found.
-      const matchingProduct = this.products.find(product => product.name.toLowerCase().includes(this.searchQuery.toLowerCase()));
-      this.filteredProductsList = matchingProduct ? [matchingProduct] : [];
-    } else { // If no search term was entered and it was blank, then set the filtered products = this.products which is all of them.
-      this.filteredProductsList = this.products;
-    }
+    this.filteredProductsList = Database.getDatabaseofItems().filter(product => product.name.toLowerCase().includes(this.searchQuery.toLowerCase()));
   }
+
+  checkout(){
+        //Transfer control to the grocery list component
+        this.router.navigateByUrl('/shoppingCart');
+  }
+
+  back(){
+    this.router.navigateByUrl('');
+   }
 
 }
