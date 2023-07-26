@@ -22,6 +22,7 @@ export class Database{
    }
 
 
+   //Loads our data csv file into an array of arrays
    loadCSV(){
       const papa: Papa = new Papa();
       papa.parse("/assets/test-data.csv",{download: true, complete:(result) => {
@@ -31,8 +32,13 @@ export class Database{
       });
    }
 
-   createProducts(data: any){
-      for(let row of data.data){
+   //Takes each array and creates a product item from it, adding it to our internal product list.
+   //row[0] = Product Category
+   //row[1] = Product Name
+   //row[2] = Product UPC
+   //row[3] = Product Image Location
+   createProducts(parsedCsv: any){
+      for(let row of parsedCsv.data){
          this.itemDb.push(new Product(row[0],row[1],row[2],row[3]));
       }
 
