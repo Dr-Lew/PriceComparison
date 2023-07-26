@@ -6,6 +6,7 @@ import {TargetService} from "../services/target.service";
 import {Store} from "../models/store.model";
 import {WalmartService} from "../services/walmart.service";
 import {Router} from "@angular/router";
+import {Database} from "../Database";
 
 @Component({
   selector: 'app-user-setup',
@@ -30,7 +31,7 @@ export class UserSetupComponent {
 
   zipcodeCtrl:        FormControl<string | null>   = new FormControl('', Validators.required);
   storesCtrl:         FormControl<string[] | null> = new FormControl([], Validators.required);
-  storeLocationsCtrl: FormControl<Store[] | null>  = new FormControl([], Validators.required);
+  private static storeLocationsCtrl: FormControl<Store[] | null>  = new FormControl([], Validators.required);
 
   zipcodeFormGroup      = this.formBuilder.group({
     zipcodeCtrl: this.zipcodeCtrl
@@ -39,7 +40,7 @@ export class UserSetupComponent {
     storesCtrl: this.storesCtrl
   });
   storeLocationsFormGroup = this.formBuilder.group({
-    storeLocationsCtrl: this.storeLocationsCtrl
+    storeLocationsCtrl: UserSetupComponent.storeLocationsCtrl
   });
 
   supportedStoreTypes = ['Walmart', 'Target'];
@@ -77,7 +78,7 @@ export class UserSetupComponent {
    * ShoppingListComponent.
    */
   submit() {
-    let stores: Store[] | null = this.storeLocationsCtrl.value;
+    let stores: Store[] | null =  UserSetupComponent.storeLocationsCtrl.value;
     if (stores != null) { // Should always be true
       this.user = new User(stores);
     } else {
@@ -85,5 +86,10 @@ export class UserSetupComponent {
     }
     //Transfer control to the grocery list component
     this.router.navigateByUrl('/shoppingList');
+  }
+
+  static getListOfStores(){
+    return this.storeLocationsCtrl.value;
+
   }
 }
