@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Product } from '../models/product.model';
-import {Router} from "@angular/router";
+import { Router } from "@angular/router";
 import { GroceryCartService } from '../services/grocery-cart.service';
+import { ShoppingCartItem } from "../models/shoppingCartItem";
+import { UserSetupComponent } from "../user-setup/user-setup.component";
 
 
 @Component({
@@ -16,29 +18,28 @@ import { GroceryCartService } from '../services/grocery-cart.service';
  * the user needs to.
  */
 export class ShoppingCartComponent {
- static shoppingCart: Product[] = [];
- tempPriceList: String;
- constructor(private router: Router, private cartService: GroceryCartService){
-  this.tempPriceList = "";
+  static shoppingCart: ShoppingCartItem[] = [];
+  stores = UserSetupComponent.getListOfStores();
+  totalCartCost : number;
 
- }
-
-
- back(){
-  this.router.navigateByUrl('/shoppingList');
- }
-
- getCart(){
-  return ShoppingCartComponent.shoppingCart;
- }
-
- async findCheapestForEntireCart(){
-  let temp: string = "";
-  for(let item of ShoppingCartComponent.shoppingCart){
-    temp = await this.cartService.getCheapestPrice(item);
-    this.tempPriceList = this.tempPriceList + temp;
+  constructor(private router: Router, private cartService: GroceryCartService) {
+    this.totalCartCost = 0;
   }
-  console.log(this.tempPriceList);
 
- }
+  ngOnInit() {
+    this.cartService.getCheapestPrices(ShoppingCartComponent.shoppingCart, UserSetupComponent.getListOfStores());
+    this.cartService.sortShoppingCart(ShoppingCartComponent.shoppingCart);
+
+    for (let item of ShoppingCartComponent.shoppingCart) {
+      this.totalCartCost += item.price;
+    }
+  }
+
+  back(){
+    this.router.navigateByUrl('/shoppingList');
+  }
+
+  getCart(){
+    return ShoppingCartComponent.shoppingCart;
+  }
 }

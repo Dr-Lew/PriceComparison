@@ -18,6 +18,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppRoutingModule } from './app-routing.module';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import {MatToolbarModule} from "@angular/material/toolbar";
 
 @NgModule({
   declarations: [
@@ -26,22 +27,23 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
     ShoppingListComponent,
     ShoppingCartComponent,
   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    MatInputModule,
-    MatSelectModule,
-    MatButtonModule,
-    MatListModule,
-    MatButtonToggleModule,
-    MatStepperModule,
-    MatPaginatorModule,
-    MatGridListModule,
-    FlexLayoutModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        MatInputModule,
+        MatSelectModule,
+        MatButtonModule,
+        MatListModule,
+        MatButtonToggleModule,
+        MatStepperModule,
+        MatPaginatorModule,
+        MatGridListModule,
+        FlexLayoutModule,
+        AppRoutingModule,
+        MatToolbarModule
+    ],
   providers: [
     Title
   ],
