@@ -16,6 +16,7 @@ import {MatStepperModule} from "@angular/material/stepper";
 import { AppRoutingModule } from './app-routing.module';
 import {MatGridListModule} from "@angular/material/grid-list";
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { DropdownComponent } from './dropdown/dropdown.component';
 
 
 
@@ -25,6 +26,7 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
     UserSetupComponent,
     ShoppingListComponent,
     ShoppingCartComponent,
+    DropdownComponent,
   ],
 
     imports: [

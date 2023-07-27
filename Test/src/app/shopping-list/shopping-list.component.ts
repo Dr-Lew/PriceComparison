@@ -20,6 +20,22 @@ export class ShoppingListComponent {
   searchQuery: string = "";
   filteredProductsList = this.db.getDatabaseofItems(); //Load Products from Database
 
+  selectedCategory: string = '';
+
+  filterProductsByCategory(): void {
+    if (this.selectedCategory === 'Select a category') {
+      this.filteredProductsList = this.db.getAllProducts();
+    } else {
+      this.filteredProductsList = this.db.getProductsByCategory(this.selectedCategory);
+    }
+  }
+
+  // Call this method whenever the category is selected in the dropdown
+  onCategorySelected(category: string): void {
+    this.selectedCategory = category;
+    this.filterProductsByCategory();
+  }
+  
   constructor(private router: Router){
     this.db.loadCSV();
 
@@ -30,6 +46,7 @@ export class ShoppingListComponent {
      if (!ShoppingCartComponent.shoppingCart.find(p => p.name === product.name)) {
       ShoppingCartComponent.shoppingCart.push(product);
   }
+  
 }
 
 

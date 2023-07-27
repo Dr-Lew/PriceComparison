@@ -3,29 +3,32 @@
   <p style="text-align: center; font-size: 40px;">SHOPPING LIST</p>
 </mat-grid-tile>
 
-<mat-grid-tile colspan="1" class="search-form-tile" rowHeight="200px" >
-  <form>
-    <div class="search-form-content">
+<mat-grid-tile colspan="4" class="search-form-tile" rowHeight="200px">
+  <form style="display: flex; align-items: center;">
+    <div class="search-form-content" style="flex: 1;">
       <input type="text" [(ngModel)]="searchQuery" name="search" placeholder="Search" />
-      <button (click)="submit()" type="button" name="button">Submit</button>
+      <button (click)="submit()" type="button" name="button" style="margin-right: 100px;">Submit</button>
+      <app-dropdown (categorySelected)="onCategorySelected($event)"></app-dropdown>
     </div>
   </form>
 </mat-grid-tile>
 
-<mat-grid-tile colspan="4" class="search-form-tile" rowHeight="200px" >
-  &nbsp;
-</mat-grid-tile>
 
-<mat-grid-tile *ngFor="let product of filteredProductsList; let i = index" [colspan]="i === 4 ? 4 : 1" rowHeight="200px" >
-  <div class="product-container">
-    <div class="product">
-      <img src={{db.getProductImageByName(product.name)}} alt="Product Image" width="50%" height="50%">
-      <p>{{ product.name }}</p>
-      <button (click)="addToShoppingList(product)">Add</button>
-    </div>
-  </div>
-</mat-grid-tile>
 </mat-grid-list>
+
+<mat-grid-list cols="5" gutterSize="16px" rowHeight="150px">
+  <mat-grid-tile *ngFor="let product of filteredProductsList; let i = index" [colspan]="i === 5 ? 4 : 1" rowHeight="200px" >
+    <div class="product-container">
+      <div class="product">
+        <img src={{db.getProductImageByName(product.name)}} alt="Product Image" width="50%" height="50%">
+        <p>{{ product.name }}</p>
+        <button (click)="addToShoppingList(product)">Add</button>
+      </div>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
+
+
 
 <table id="products" style="margin-top: 50px;">
 <thead>
