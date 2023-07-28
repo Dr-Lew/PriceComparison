@@ -55,6 +55,7 @@ export class TargetService {
     }
 
 
+    console.log(stores);
     return stores;
   }
 
