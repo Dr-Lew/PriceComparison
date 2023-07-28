@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ShoppingListComponent } from './shopping-list.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {DropdownComponent} from '../dropdown/dropdown.component';
 
 describe('ShoppingListComponent', () => {
   let component: ShoppingListComponent;
@@ -10,7 +11,7 @@ describe('ShoppingListComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ShoppingListComponent],
+      declarations: [ShoppingListComponent,DropdownComponent],
       imports: [MatGridListModule,FormsModule,ReactiveFormsModule]
     });
     fixture = TestBed.createComponent(ShoppingListComponent);
@@ -22,7 +23,4 @@ describe('ShoppingListComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should TEST', () => {
-    spyOn
-  });
 });
