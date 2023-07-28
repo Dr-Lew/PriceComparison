@@ -18,6 +18,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppRoutingModule } from './app-routing.module';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { DropdownComponent } from './dropdown/dropdown.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
 
 @NgModule({
@@ -26,6 +27,7 @@ import {MatToolbarModule} from "@angular/material/toolbar";
     UserSetupComponent,
     ShoppingListComponent,
     ShoppingCartComponent,
+    DropdownComponent,
   ],
     imports: [
         BrowserModule,

@@ -1,6 +1,20 @@
-PLACEHOLDER,Coca Cola 12Pk,049000028904,/assets/cocacola-image-placeholder.jpg
-PLACEHOLDER,Nacho Cheese Doritos - 9.75oz,028400642033,/assets/doritoes-image-placeholder.jpg
-PLACEHOLDER,Jif Creamy Peanut Butter - 16oz,051500255162,/assets/jif-image-placeholder.jpg
-PLACEHOLDER,Lay's Classic Potato Chips - 10.25oz,028400598125,/assets/lays-image-placeholder.jpg
-PLACEHOLDER,Wonder Classic White Bread,072250011372,/assets/wonderbread-image-placeholder.jpg
-PLACEHOLDER,Heinz Tomato Ketchup - 20oz,013000006408,/assets/heinz-image-placeholder.jpg
+beverage,Coca Cola 12Pk,049000028904,/assets/cocacola-image-placeholder.jpg
+pantry,Nacho Cheese Doritos - 9.75oz,028400642033,/assets/doritoes-image-placeholder.jpg
+pantry,Jif Creamy Peanut Butter - 16oz,051500255162,/assets/jif-image-placeholder.jpg
+pantry,Lay's Classic Potato Chips - 10.25oz,028400598125,/assets/lays-image-placeholder.jpg
+bakery,Wonder Classic White Bread,072250011372,/assets/wonderbread-image-placeholder.jpg
+pantry,Heinz Tomato Ketchup - 20oz,013000006408,/assets/heinz-image-placeholder.jpg
+beverage,Pepsi Cola Made with Real Sugar Soda Pop,492712003071,/assets/pepsi-image-placeholder.jpg
+beverage,Sprite - 12pk,049000028928,/assets/sprite-image-placeholder.jpg
+beverage,Waterloo Sparkling Water Black Cherry,819215020150,/assets/waterloo-image-placeholder.jpg
+bakery,Pepperidge Farm Wheat Bread - 24oz,014100085997,/assets/pepperidgewheat-image-placeholder.jpg
+bakery,Nature's Own 100% Whole Wheat Bread,072250037129,/assets/naturesown-image-placeholder.jpg
+bakery,Pepperidge Farm Raisin Breakfast Bread,014100071112,/assets/pepperidgeraisin-image-placeholder.jpg
+candies,HARIBO Gold-Bears Gummi Candy - 8oz,042238302815,/assets/HARIBO-image-placeholder.jpg
+candies,Jolly Rancher Fruit Hard Candies - 14oz,010700556868,/assets/HardJolly-image-placeholder.jpg
+candies,Snickers Fun Size Chocolate Candy Bars,040000505334,/assets/snickers-image-placeholder.jpg
+candies,Dove Promises Milk Chocolate Candy,040000525387,/assets/Dove-image-placeholder.jpg
+dairy,Lactaid Lactose Free 2% Reduced Fat Milk,041383090103,/assets/Lactaid-image-placeholder.jpg
+dairy,Sargento Natural Mozzarella String Cheese,046100007150,/assets/Sargento-image-placeholder.jpg
+dairy,Stonyfield Organic Plain Greek Yogurt,052159532505,/assets/Yogurt-image-placeholder.jpg
+dairy,Daisy Pure & Natural Sour Cream - 8oz,073420000066,/assets/daisy-image-placeholder.jpg

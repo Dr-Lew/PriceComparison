@@ -44,4 +44,14 @@ export class Database{
 
    }
 
+     // Add a method to return all products from the database
+  getAllProducts(): Product[] {
+   return this.itemDb;
+ }
+
+ // Add a method to return products filtered by category
+ getProductsByCategory(category: string): Product[] {
+   return this.itemDb.filter((product) => product.cat === category);
+ }
+
 }
