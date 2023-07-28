@@ -17,7 +17,7 @@
 </mat-grid-list>
 
 <mat-grid-list cols="5" gutterSize="16px" rowHeight="150px">
-  <mat-grid-tile *ngFor="let product of filteredProductsList; let i = index" [colspan]="i === 5 ? 4 : 1" rowHeight="200px" >
+  <mat-grid-tile *ngFor="let product of filteredProductsList; let i = index" [colspan]="1" rowHeight="200px" >
     <div class="product-container">
       <div class="product">
         <img src={{db.getProductImageByName(product.name)}} alt="Product Image" width="50%" height="50%">
