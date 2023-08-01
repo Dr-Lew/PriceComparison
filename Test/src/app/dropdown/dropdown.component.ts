@@ -6,7 +6,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./dropdown.component.css']
 })
 export class DropdownComponent {
-  public options: string[] = ['Select a category', 'beverage', 'bakery', 'pantry', 'candies', 'dairy'];
+  public options: string[] = ['Select a category', 'beverage', 'bakery', 'pantry', 'candies', 'dairy', 'pets', 'snacks', 'baby'];
   @Output() categorySelected: EventEmitter<string> = new EventEmitter<string>();
 
   onSelectCategory(event: Event): void {
