@@ -17,7 +17,7 @@ import { AppRoutingModule } from './app-routing.module';
 import {MatGridListModule} from "@angular/material/grid-list";
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
-
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 @NgModule({
@@ -42,6 +42,7 @@ import { DropdownComponent } from './dropdown/dropdown.component';
         MatStepperModule,
         AppRoutingModule,
         MatGridListModule,
+        MatPaginatorModule,
     ],
   providers: [
     Title

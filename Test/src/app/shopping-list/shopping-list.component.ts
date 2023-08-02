@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { Database} from "../Database";
 import { Product } from '../models/product.model';
 import { ShoppingCartComponent } from '../shopping-cart/shopping-cart.component';
@@ -19,8 +20,19 @@ export class ShoppingListComponent {
   cart = ShoppingCartComponent;
   searchQuery: string = "";
   filteredProductsList = this.db.getDatabaseofItems(); //Load Products from Database
+  
+  // Pagination properties
+  currentPage = 0;
+  pageSize = 5; // Default to 5 items per page
+  pageSizeOptions = [5, 10, 20];
+  selectedPageSize = 5;
 
   selectedCategory: string = '';
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
+
+  // Property to hold the paged products list
+  pagedProductsList: Product[] = [];
 
   filterProductsByCategory(): void {
     if (this.selectedCategory === 'Select a category') {
@@ -32,6 +44,7 @@ export class ShoppingListComponent {
 
   // Call this method whenever the category is selected in the dropdown
   onCategorySelected(category: string): void {
+    this.currentPage = 0;
     this.selectedCategory = category;
     this.filterProductsByCategory();
   }
@@ -64,4 +77,27 @@ export class ShoppingListComponent {
     this.router.navigateByUrl('');
    }
 
+  updatePagedProductsList() {
+    const startIndex = this.currentPage * this.pageSize;
+    this.pagedProductsList = this.filteredProductsList.slice(startIndex, startIndex + this.pageSize);
+  }
+
+  // Handle the page change event
+  onPageChange(event: PageEvent) {
+    this.currentPage = event.pageIndex;
+  }
+
+  options: string[] = ['Select a category', 'beverage', 'bakery', 'pantry', 'candies', 'dairy', 'pets', 'snacks', 'baby'];
+  
+  // Handle the pagination size change
+  onPageSizeChange(pageSize: string): void {
+    this.pageSize = Number(pageSize);
+    this.currentPage = 0; // Reset to the first page when changing the pagination size
+    this.updatePagedProductsList();
+  }
+     
+  ngOnInit() {
+    // Initialize the category dropdown selection with the default value
+    this.selectedCategory = this.options[0];
+  }
 }

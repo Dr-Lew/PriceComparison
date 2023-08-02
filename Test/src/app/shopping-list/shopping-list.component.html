@@ -8,8 +8,22 @@
     <div class="search-form-content" style="flex: 1;">
       <input type="text" [(ngModel)]="searchQuery" name="search" placeholder="Search" />
       <button (click)="submit()" type="button" name="button" style="margin-right: 100px;">Submit</button>
-      <app-dropdown (categorySelected)="onCategorySelected($event)"></app-dropdown>
+      <!-- Custom dropdown for category selection -->
+      <mat-form-field appearance="outline" style="margin-right: 100px;">
+        <mat-label>Category</mat-label>
+        <mat-select (selectionChange)="onCategorySelected($event.value)">
+          <mat-option *ngFor="let option of options" [value]="option">{{ option }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <!-- Custom dropdown for pagination selection -->
+      <mat-form-field appearance="outline">
+        <mat-label>Items per page</mat-label>
+        <mat-select [(value)]="selectedPageSize" (selectionChange)="onPageSizeChange($event.value)">
+          <mat-option *ngFor="let option of pageSizeOptions" [value]="option">{{ option }}</mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
+    <mat-paginator [length]="filteredProductsList.length" [pageSize]="selectedPageSize" (page)="onPageChange($event)"></mat-paginator>
   </form>
 </mat-grid-tile>
 
@@ -17,7 +31,7 @@
 </mat-grid-list>
 
 <mat-grid-list cols="5" gutterSize="16px" rowHeight="150px">
-  <mat-grid-tile *ngFor="let product of filteredProductsList; let i = index" [colspan]="1" rowHeight="200px" >
+  <mat-grid-tile *ngFor="let product of filteredProductsList | slice:(currentPage * pageSize):(currentPage + 1) * pageSize; let i = index" [colspan]="1" rowHeight="200px">
     <div class="product-container">
       <div class="product">
         <img src={{db.getProductImageByName(product.name)}} alt="Product Image" width="50%" height="50%">
