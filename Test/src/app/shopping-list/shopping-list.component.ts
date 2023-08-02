@@ -4,6 +4,9 @@ import { Database} from "../Database";
 import { Product } from '../models/product.model';
 import { ShoppingCartComponent } from '../shopping-cart/shopping-cart.component';
 import {Router} from "@angular/router";
+import {ShoppingCartItem} from "../models/shoppingCartItem";
+import {GroceryCartService} from "../services/grocery-cart.service";
+import {UserSetupComponent} from "../user-setup/user-setup.component";
 
 @Component({
   selector: 'app-shopping-list',
@@ -52,31 +55,31 @@ export class ShoppingListComponent {
   
   constructor(private router: Router){
     this.db.loadCSV();
-
   }
 
   addToShoppingList(product: Product): void {
-    product.quantity++;
-     if (!ShoppingCartComponent.shoppingCart.find(p => p.name === product.name)) {
-      ShoppingCartComponent.shoppingCart.push(product);
-  }
+    let result = ShoppingCartComponent.shoppingCart.find(p => p.product.name === product.name);
+    if (!result) {
+     let shoppingCartItem : ShoppingCartItem = new ShoppingCartItem(product);
+     ShoppingCartComponent.shoppingCart.push(shoppingCartItem);
+    } else {
+      result.quantity++;
+    }
   
-}
-
-
+  }
 
   submit() {
     this.filteredProductsList = this.db.getDatabaseofItems().filter(product => product.name.toLowerCase().includes(this.searchQuery.toLowerCase()));
   }
 
   checkout(){
-        //Transfer control to the grocery list component
-        this.router.navigateByUrl('/shoppingCart');
+    //Transfer control to the grocery list component
+    this.router.navigateByUrl('/shoppingCart');
   }
 
   back(){
     this.router.navigateByUrl('');
-   }
+  }
 
   updatePagedProductsList() {
     const startIndex = this.currentPage * this.pageSize;

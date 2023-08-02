@@ -55,11 +55,12 @@ export class TargetService {
     }
 
 
+    console.log(stores);
     return stores;
   }
 
   /**
-   * The getCost method gets the cost of an item from a store.
+   * The getCost method gets the cost of an item from a store. Returns -1 upon failure.
    *
    * @param upc the upc of the item.
    * @param storeId the store to search the price of the item.
@@ -84,6 +85,7 @@ export class TargetService {
 
     } catch (error) {
       console.error(error);
+      return -1;
     }
 
     return price;

@@ -1,12 +1,9 @@
-import { Injectable } from '@angular/core';
-import {FormBuilder, FormControl, Validators} from '@angular/forms';
+import {Injectable} from '@angular/core';
 import {StoreType} from "../models/storeTypes";
-import { Store } from '../models/store.model';
-import {Product} from '../models/product.model';
+import {Store} from '../models/store.model';
 import {Address} from "../models/address.model";
 import {TargetService} from "./target.service";
-import { UserSetupComponent } from '../user-setup/user-setup.component';
-import { User } from '../models/user.model';
+import {ShoppingCartItem} from "../models/shoppingCartItem";
 
 @Injectable({
   providedIn: 'root'
@@ -20,36 +17,54 @@ export class GroceryCartService {
 
   constructor(private targetService : TargetService) { }
 
-  storeLocationsCtrl: FormControl<Store[] | null>  = new FormControl([], Validators.required);
-
-  /*
-  getCheapestPrices(){
-    for(let i = 0; i < this.items.length;i++){
-      this.getCheapestPrice(this.items[i])
+  async getCheapestPrices(shoppingCart: ShoppingCartItem[], stores: Store[] | null) {
+    for (let item of shoppingCart) {
+      await this.getCheapestPrice(item, stores);
     }
   }
-   */
 
-  async getCheapestPrice(product : Product) : Promise<string>{
-    let stores = UserSetupComponent.getListOfStores();
-    
+  async getCheapestPrice(shoppingCartItem : ShoppingCartItem, stores: Store[] | null){
      //Some absurd price
      let min_price: number = 10000;
-     let min_store: Store = new Store(-1, new Address('','','',''), StoreType.Walmart);
-    
+     let min_store: Store | null = null;
+
      if (stores) {
        for (let i = 0; i < stores.length; ++i) {
          let curr_store: Store = stores[i];
-         let curr_price = await this.targetService.getCost(product.upc, curr_store.id.toString());
-         if (curr_price < min_price) {
-           min_price = curr_price;
+         let price = await this.targetService.getCost(shoppingCartItem.product.upc, curr_store.id.toString());
+         if (price < min_price && price != -1) {
+           min_price = price;
            min_store = curr_store;
          }
        }
      }
-     return (product.name + " is cheapest at "+ min_store.id+ " for " + min_price + "\n");
-     console.log("Cheapest Place to find " + product.name)
-     console.log("Store: " + min_store.id);
-     console.log("Item: " + min_price);
+
+     if (min_store != null) {
+       shoppingCartItem.price = min_price * shoppingCartItem.quantity;
+       shoppingCartItem.store = min_store;
+     } else {
+       shoppingCartItem.price = -1;
+       shoppingCartItem.store = new Store(-1, new Address("Item not found", "",  "", ""), StoreType.Empty);
+     }
+  }
+
+  /**
+   * Sorts the shopping cart by store type then by location.
+   *
+   * @param shoppingCart
+   */
+  sortShoppingCart(shoppingCart: ShoppingCartItem[]) {
+    shoppingCart.sort(this.compareByStore);
+    shoppingCart.sort(this.compareByStoreId);
+  }
+
+  private compareByStore(itemA: ShoppingCartItem, itemB: ShoppingCartItem) {
+    // @ts-ignore
+    return itemA.store.storeType - itemB.store.storeType;
+  }
+
+  private compareByStoreId(itemA: ShoppingCartItem, itemB: ShoppingCartItem) {
+    // @ts-ignore
+    return itemA.store.id - itemB.store.id;
   }
 }
