@@ -46,6 +46,7 @@ export class ShoppingListComponent {
   onCategorySelected(category: string): void {
     this.currentPage = 0;
     this.selectedCategory = category;
+    this.paginator.firstPage();
     this.filterProductsByCategory();
   }
   
@@ -93,6 +94,7 @@ export class ShoppingListComponent {
   onPageSizeChange(pageSize: string): void {
     this.pageSize = Number(pageSize);
     this.currentPage = 0; // Reset to the first page when changing the pagination size
+    this.paginator.firstPage();
     this.updatePagedProductsList();
   }
      
