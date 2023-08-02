@@ -7,7 +7,7 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 
 import { FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from "@angular/material/button";
 import {MatListModule} from "@angular/material/list";
@@ -20,6 +20,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
+
 
 @NgModule({
   declarations: [
