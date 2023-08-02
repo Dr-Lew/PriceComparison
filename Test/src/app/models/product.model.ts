@@ -6,39 +6,15 @@ import {Store} from "./store.model";
  * the product.
  */
 export class Product {
+  cat:      string;
   name:     string;
   upc:      string;
-  price:    number;
-  quantity: number;
-  store:    Store | null;
+  image:    string;
 
-  constructor(name: string, upc: string) {
+  constructor(cat: string,name: string, upc: string,image: string) {
+    this.cat = cat;
     this.name = name;
     this.upc = upc;
-    this.price = 0;
-    this.quantity = 0;
-    this.store = null;
-  }
-
-  setPrice(price: number) {
-    this.price = price;
-  }
-
-  setStore(store: Store) {
-    this.store = store;
-  }
-
-  /**
-   * The increaseQuantity() method increases the quantity of the product by one.
-   */
-  increaseQuantity() {
-    this.quantity++;
-  }
-
-  /**
-   * The decreaseQuantity() method decreases the quantity of the product by one.
-   */
-  decreaseQuantity() {
-    this.quantity--;
+    this.image = image;
   }
 }

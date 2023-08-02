@@ -1,57 +1,67 @@
 
+<!--
 <div class="top">
-  <mat-grid-list cols="2">
+  <mat-grid-list cols="1">
     <mat-grid-tile><img id ="test" src="assets/marketing_img.jpg"></mat-grid-tile>
-    <mat-grid-tile>
-      <mat-stepper linear>
-        <mat-step [stepControl]="zipcodeFormGroup">
-          <form [formGroup]="zipcodeFormGroup">
-            <ng-template matStepLabel>Enter your zipcode</ng-template>
-            <mat-form-field>
-              <mat-label>Zipcode</mat-label>
-              <input matInput formControlName="zipcodeCtrl" required>
-            </mat-form-field>
-            <div>
-              <button mat-button matStepperNext>Next</button>
-            </div>
-          </form>
-        </mat-step>
-
-        <mat-step [stepControl]="storesFormGroup">
-          <form [formGroup]="storesFormGroup">
-            <ng-template matStepLabel>Select stores you shop at</ng-template>
-            <mat-form-field>
-              <mat-label>Supported Stores</mat-label>
-              <mat-select formControlName="storesCtrl" multiple>
-                <mat-option *ngFor="let storeType of supportedStoreTypes" [value]="storeType">{{storeType}}</mat-option>
-              </mat-select>
-            </mat-form-field>
-            <div>
-              <button mat-button matStepperPrevious>Back</button>
-              <button mat-button matStepperNext (click)="getStores()">Next</button>
-            </div>
-          </form>
-        </mat-step>
-
-        <mat-step [stepControl]="storeLocationsFormGroup">
-          <form [formGroup]="storeLocationsFormGroup">
-            <ng-template matStepLabel>Select store locations</ng-template>
-            <mat-form-field>
-              <mat-label>Store Locations</mat-label>
-              <mat-select formControlName="storeLocationsCtrl" multiple>
-                <mat-option *ngFor="let store of storeLocations" [value]="store">{{store.id}}</mat-option>
-              </mat-select>
-            </mat-form-field>
-            <div>
-              <button mat-button matStepperPrevious>Back</button>
-              <button mat-button (click)="submit()">Start shopping</button>
-            </div>
-          </form>
-        </mat-step>
-
-      </mat-stepper>
-    </mat-grid-tile>
   </mat-grid-list>
 </div>
+-->
 
-<div id="description"></div>
+<mat-toolbar color="primary">
+  <span style="font-size: x-large">Price Comparator</span>
+</mat-toolbar>
+
+<mat-toolbar>
+  <span style="font-size: large">User Setup</span>
+</mat-toolbar>
+
+<div class="form">
+  <mat-stepper linear>
+    <mat-step [stepControl]="zipcodeFormGroup">
+      <form [formGroup]="zipcodeFormGroup">
+        <ng-template matStepLabel>Enter your zipcode</ng-template>
+        <mat-form-field>
+          <mat-label>Zipcode</mat-label>
+          <input matInput formControlName="zipcodeCtrl" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="storesFormGroup">
+      <form [formGroup]="storesFormGroup">
+        <ng-template matStepLabel>Select stores you shop at</ng-template>
+        <mat-form-field>
+          <mat-label>Supported Stores</mat-label>
+          <mat-select formControlName="storesCtrl" multiple>
+            <mat-option *ngFor="let storeType of supportedStoreTypes" [value]="storeType">{{storeType}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext (click)="getStores()">Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="storeLocationsFormGroup">
+      <form [formGroup]="storeLocationsFormGroup">
+        <ng-template matStepLabel>Select store locations</ng-template>
+        <mat-form-field>
+          <mat-label>Store Locations</mat-label>
+          <mat-select formControlName="storeLocationsCtrl" multiple>
+            <mat-option *ngFor="let store of storeLocations" [value]="store">{{store.id}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button type="button" (click)="submit()">Start shopping</button>
+        </div>
+      </form>
+    </mat-step>
+
+  </mat-stepper>
+</div>
+

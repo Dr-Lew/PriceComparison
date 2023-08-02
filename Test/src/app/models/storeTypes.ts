@@ -3,6 +3,7 @@
  */
 
 export enum StoreType {
+  Empty,
   Walmart,
   Target
 }

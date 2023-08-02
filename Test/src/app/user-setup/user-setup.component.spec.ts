@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UserSetupComponent } from './user-setup.component';
 import { CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 describe('UserSetupComponent', () => {
@@ -12,7 +12,7 @@ describe('UserSetupComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [UserSetupComponent],
-      imports:[FormsModule],
+      imports:[FormsModule, ReactiveFormsModule],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
     fixture = TestBed.createComponent(UserSetupComponent);
@@ -23,4 +23,5 @@ describe('UserSetupComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });
