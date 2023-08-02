@@ -9,12 +9,14 @@ export class Product {
   cat:      string;
   name:     string;
   upc:      string;
+  walcode:  string;
   image:    string;
 
-  constructor(cat: string,name: string, upc: string,image: string) {
+  constructor(cat: string,name: string, upc: string,walcode: string,image: string) {
     this.cat = cat;
     this.name = name;
     this.upc = upc;
+    this.walcode = walcode;
     this.image = image;
   }
 }
