@@ -39,9 +39,8 @@ export class Database{
    //row[3] = Product Image Location
    createProducts(parsedCsv: any){
       for(let row of parsedCsv.data){
-         this.itemDb.push(new Product(row[0],row[1],row[2],row[3]));
+         this.itemDb.push(new Product(row[0],row[1],row[2],row[3],row[4]));
       }
-
    }
 
      // Add a method to return all products from the database

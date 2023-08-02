@@ -1,20 +1,50 @@
-beverage,Coca Cola 12Pk,049000028904,/assets/cocacola-image-placeholder.jpg
-pantry,Nacho Cheese Doritos - 9.75oz,028400642033,/assets/doritoes-image-placeholder.jpg
-pantry,Jif Creamy Peanut Butter - 16oz,051500255162,/assets/jif-image-placeholder.jpg
-pantry,Lay's Classic Potato Chips - 10.25oz,028400598125,/assets/lays-image-placeholder.jpg
-bakery,Wonder Classic White Bread,072250011372,/assets/wonderbread-image-placeholder.jpg
-pantry,Heinz Tomato Ketchup - 20oz,013000006408,/assets/heinz-image-placeholder.jpg
-beverage,Pepsi Cola Made with Real Sugar Soda Pop,492712003071,/assets/pepsi-image-placeholder.jpg
-beverage,Sprite - 12pk,049000028928,/assets/sprite-image-placeholder.jpg
-beverage,Waterloo Sparkling Water Black Cherry,819215020150,/assets/waterloo-image-placeholder.jpg
-bakery,Pepperidge Farm Wheat Bread - 24oz,014100085997,/assets/pepperidgewheat-image-placeholder.jpg
-bakery,Nature's Own 100% Whole Wheat Bread,072250037129,/assets/naturesown-image-placeholder.jpg
-bakery,Pepperidge Farm Raisin Breakfast Bread,014100071112,/assets/pepperidgeraisin-image-placeholder.jpg
-candies,HARIBO Gold-Bears Gummi Candy - 8oz,042238302815,/assets/HARIBO-image-placeholder.jpg
-candies,Jolly Rancher Fruit Hard Candies - 14oz,010700556868,/assets/HardJolly-image-placeholder.jpg
-candies,Snickers Fun Size Chocolate Candy Bars,040000505334,/assets/snickers-image-placeholder.jpg
-candies,Dove Promises Milk Chocolate Candy,040000525387,/assets/Dove-image-placeholder.jpg
-dairy,Lactaid Lactose Free 2% Reduced Fat Milk,041383090103,/assets/Lactaid-image-placeholder.jpg
-dairy,Sargento Natural Mozzarella String Cheese,046100007150,/assets/Sargento-image-placeholder.jpg
-dairy,Stonyfield Organic Plain Greek Yogurt,052159532505,/assets/Yogurt-image-placeholder.jpg
-dairy,Daisy Pure & Natural Sour Cream - 8oz,073420000066,/assets/daisy-image-placeholder.jpg
+beverage,Coca Cola 12Pk,049000028904,PLACEHOLDER,/assets/cocacola-image-placeholder.jpg
+snacks,Nacho Cheese Doritos - 9.75oz,028400642033,PLACEHOLDER,/assets/doritoes-image-placeholder.jpg
+pantry,Jif Creamy Peanut Butter - 16oz,051500255162,PLACEHOLDER,/assets/jif-image-placeholder.jpg
+snacks,Lay's Classic Potato Chips - 10.25oz,028400598125,PLACEHOLDER,/assets/lays-image-placeholder.jpg
+bakery,Wonder Classic White Bread,072250011372,PLACEHOLDER,/assets/wonderbread-image-placeholder.jpg
+pantry,Heinz Tomato Ketchup - 20oz,013000006408,PLACEHOLDER,/assets/heinz-image-placeholder.jpg
+beverage,Pepsi Cola Made with Real Sugar Soda,492712003071,PLACEHOLDER,/assets/pepsi-image-placeholder.jpg
+beverage,Sprite - 12pk,049000028928,PLACEHOLDER,/assets/sprite-image-placeholder.jpg
+beverage,Waterloo Sparkling Water Black Cherry,819215020150,PLACEHOLDER,/assets/waterloo-image-placeholder.jpg
+bakery,Pepperidge Farm Wheat Bread - 24oz,014100085997,PLACEHOLDER,/assets/pepperidgewheat-image-placeholder.jpg
+bakery,Nature's Own 100% Whole Wheat Bread,072250037129,PLACEHOLDER,/assets/naturesown-image-placeholder.jpg
+bakery,Pepperidge Farm Raisin Breakfast Bread,014100071112,PLACEHOLDER,/assets/pepperidgeraisin-image-placeholder.jpg
+candies,HARIBO Gold-Bears Gummi Candy - 8oz,042238302815,PLACEHOLDER,/assets/HARIBO-image-placeholder.jpg
+candies,Jolly Rancher Fruit Hard Candies - 14oz,010700556868,PLACEHOLDER,/assets/HardJolly-image-placeholder.jpg
+candies,Snickers Fun Size Chocolate Candy Bars,040000505334,PLACEHOLDER,/assets/snickers-image-placeholder.jpg
+candies,Dove Promises Milk Chocolate Candy,040000525387,PLACEHOLDER,/assets/Dove-image-placeholder.jpg
+dairy,Lactaid Lactose Free 2% Reduced Fat Milk,041383090103,PLACEHOLDER,/assets/Lactaid-image-placeholder.jpg
+dairy,Sargento Mozzarella String Cheese,046100007150,PLACEHOLDER,/assets/Sargento-image-placeholder.jpg
+dairy,Stonyfield Organic Plain Greek Yogurt,052159532505,PLACEHOLDER,/assets/Yogurt-image-placeholder.jpg
+dairy,Daisy Pure & Natural Sour Cream - 8oz,073420000066,PLACEHOLDER,/assets/daisy-image-placeholder.jpg
+beverage,Tropicana Pure Premium Orange Juice,048500202746,PLACEHOLDER,/assets/Tropicana-image-placeholder.jpg
+bakery,Thomas' Regular English Muffins,048121102081,PLACEHOLDER,/assets/Thomas-image-placeholder.jpg
+pantry,Smucker's Natural Strawberry Preserves,051500141304,PLACEHOLDER,/assets/Jam-image-placeholder.jpg
+pantry,Nutella Chocolate Hazelnut Spread,009800895007,PLACEHOLDER,/assets/Nutella-image-placeholder.jpg
+pantry,Bertolli Extra Virgin Olive Oil,041790214260,PLACEHOLDER,/assets/OliveOil-image-placeholder.jpg
+snacks,Oreo Chocolate Sandwich Cookies,044000060237,PLACEHOLDER,/assets/OREO-image-placeholder.jpg
+snacks,Chips Ahoy! Original Chocolate Chip,044000032197,PLACEHOLDER,/assets/ChipsAhoy-image-placeholder.jpg
+snacks,Cheez-It Baked Snack Crackers,024100535231,PLACEHOLDER,/assets/CheezIt-image-placeholder.jpg
+snacks,Wheat Thins Original Crackers,044000069216,PLACEHOLDER,/assets/WheatThins-image-placeholder.jpg
+snacks,Pepperidge Goldfish Cheddar Crackers,014100085478,PLACEHOLDER,/assets/Goldfish-image-placeholder.jpg
+snacks,Hostess Chocolate Cup Cakes,888109110017,PLACEHOLDER,/assets/HostessCake-image-placeholder.jpg
+snacks,Little Bites Chocolate Chip Muffins,072030013534,PLACEHOLDER,/assets/LittleBites-image-placeholder.jpg
+snacks,Jell-O Strawberry Sugar Free - 12.5oz/4ct,043000045688,PLACEHOLDER,/assets/Jello-image-placeholder.jpg
+candies,M&M's Milk Chocolate Candies,040000512943,PLACEHOLDER,/assets/M&Ms-image-placeholder.jpg
+dairy,Eggland's Best Grade A Large Eggs,715141503494,PLACEHOLDER,/assets/Eggs-image-placeholder.jpg
+pets,Blue Buffalo Adult Dry Dog Food,859610000098,PLACEHOLDER,/assets/DogDry-image-placeholder.jpg
+pets,Milk-Bone Beef Dog Treats - 25oz,079100509607,PLACEHOLDER,/assets/Milkbone-image-placeholder.jpg
+pets,Blue Buffalo Dry Cat Food,840243130573,PLACEHOLDER,/assets/CatDry-image-placeholder.jpg
+pets,Blue Buffalo Tastefuls Flaked - 12ct,840243140756,PLACEHOLDER,/assets/Tastefuls-image-placeholder.jpg
+pets,NERF Classic Squeak Ball Dog Toy,846998069991,PLACEHOLDER,/assets/DogToy-image-placeholder.jpg
+pets,SmartyKat Skitter Critters Cat Toys,829576634491,PLACEHOLDER,/assets/SmartyKat-image-placeholder.jpg
+pets,Greenies SmartBites Indoor Cat Treats,642863101403,PLACEHOLDER,/assets/CatTreat-image-placeholder.jpg
+pets,SmartyKat Super Scratcher and Bed,786306092481,PLACEHOLDER,/assets/Scratcher-image-placeholder.jpg
+pets,Petmaker Cozy Cottage Dog Bed,191344325659,PLACEHOLDER,/assets/DogHouse-image-placeholder.jpg
+pets,Cat House Indoor Bed,191344543824,PLACEHOLDER,/assets/CatHouse-image-placeholder.jpg
+baby,Nuby Silicone Teether,039175809217,PLACEHOLDER,/assets/Nuby-image-placeholder.jpg
+baby,Fisher-Price Play Piano Gym,887961670066,PLACEHOLDER,/assets/Gym-image-placeholder.jpg
+baby,Ingenuity Premium Soft Plush Teddy Bear,074451123793,PLACEHOLDER,/assets/BabyToy-image-placeholder.jpg
+baby,Huggies Unscented Baby Wipes,036000318906,PLACEHOLDER,/assets/Huggies-image-placeholder.jpg
+baby,Fisher-Price Diaper Backpack,886252222656,PLACEHOLDER,/assets/Bag-image-placeholder.jpg
