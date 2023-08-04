@@ -105,4 +105,9 @@ export class ShoppingListComponent {
     // Initialize the category dropdown selection with the default value
     this.selectedCategory = this.options[0];
   }
+
+  removeItemsWithZeroQuantity(): void {
+    this.cart.shoppingCart = this.cart.shoppingCart.filter(item => item.quantity > 0);
+    this.updatePagedProductsList();
+  }
 }
