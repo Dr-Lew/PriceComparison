@@ -88,7 +88,11 @@ export class UserSetupComponent {
   }
 
   static getListOfStores(){
-    return this.storeLocationsCtrl.value;
+    if(this.storeLocationsCtrl.value){
+      return this.storeLocationsCtrl.value;
+    }
+    else return [];
+
 
   }
 }

@@ -4,6 +4,7 @@ import {Store} from '../models/store.model';
 import {Address} from "../models/address.model";
 import {TargetService} from "./target.service";
 import {ShoppingCartItem} from "../models/shoppingCartItem";
+import { UserSetupComponent } from '../user-setup/user-setup.component';
 
 @Injectable({
   providedIn: 'root'
@@ -30,8 +31,10 @@ export class GroceryCartService {
 
      if (stores) {
        for (let i = 0; i < stores.length; ++i) {
+        stores[i].itemCosts = [];
          let curr_store: Store = stores[i];
          let price = await this.targetService.getCost(shoppingCartItem.product.upc, curr_store.id.toString());
+         curr_store.itemCosts.push(price);
          if (price < min_price && price != -1) {
            min_price = price;
            min_store = curr_store;
@@ -59,6 +62,7 @@ export class GroceryCartService {
   }
 
   private compareByStore(itemA: ShoppingCartItem, itemB: ShoppingCartItem) {
+    console.log(itemA.store, itemB.store);
     // @ts-ignore
     return itemA.store.storeType - itemB.store.storeType;
   }
@@ -66,5 +70,14 @@ export class GroceryCartService {
   private compareByStoreId(itemA: ShoppingCartItem, itemB: ShoppingCartItem) {
     // @ts-ignore
     return itemA.store.id - itemB.store.id;
+  }
+
+  getCheapestStore(){
+    let total: number = 0;
+    for(let store of UserSetupComponent.getListOfStores()){
+      for(let cost of store.itemCosts){
+        total += cost;
+      }
+    }
   }
 }

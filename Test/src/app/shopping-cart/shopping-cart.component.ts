@@ -1,9 +1,9 @@
 import { Component, OnInit} from '@angular/core';
-import { Product } from '../models/product.model';
 import { Router } from "@angular/router";
 import { GroceryCartService } from '../services/grocery-cart.service';
 import { ShoppingCartItem } from "../models/shoppingCartItem";
 import { UserSetupComponent } from "../user-setup/user-setup.component";
+import { TargetService } from '../services/target.service';
 
 
 @Component({
@@ -19,10 +19,9 @@ import { UserSetupComponent } from "../user-setup/user-setup.component";
  */
 export class ShoppingCartComponent {
   static shoppingCart: ShoppingCartItem[] = [];
-  stores = UserSetupComponent.getListOfStores();
   totalCartCost : number;
 
-  constructor(private router: Router, private cartService: GroceryCartService) {
+  constructor(private router: Router, private cartService: GroceryCartService, private targetService: TargetService) {
     this.totalCartCost = 0;
   }
 
@@ -42,4 +41,5 @@ export class ShoppingCartComponent {
   getCart(){
     return ShoppingCartComponent.shoppingCart;
   }
+
 }

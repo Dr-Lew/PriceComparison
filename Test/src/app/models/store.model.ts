@@ -8,10 +8,12 @@ export class Store {
   id: number;
   address: Address;
   storeType: StoreType;
+  itemCosts: number[]
 
   constructor(id: number, address: Address, storeType: StoreType) {
     this.id = id;
     this.address = address;
     this.storeType = storeType;
+    this.itemCosts = [];
   }
 }
