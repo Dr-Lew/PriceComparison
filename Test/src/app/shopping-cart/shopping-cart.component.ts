@@ -26,18 +26,23 @@ export class ShoppingCartComponent {
   }
 
   ngOnInit() {
-    this.cartService.getCheapestPrices(ShoppingCartComponent.shoppingCart, UserSetupComponent.getListOfStores());
-    this.cartService.sortShoppingCart(ShoppingCartComponent.shoppingCart);
 
-    for (let item of ShoppingCartComponent.shoppingCart) {
-      this.totalCartCost += item.price;
-    }
   }
 
   back(){
     this.router.navigateByUrl('/shoppingList');
   }
 
+  async run(){
+    await this.cartService.getCheapestPrices(ShoppingCartComponent.shoppingCart, UserSetupComponent.getListOfStores());
+   //await  this.cartService.sortShoppingCart(ShoppingCartComponent.shoppingCart);
+   await  this.cartService.getCheapestStore();
+
+    for (let item of ShoppingCartComponent.shoppingCart) {
+      this.totalCartCost += item.price;
+    }
+
+  }
   getCart(){
     return ShoppingCartComponent.shoppingCart;
   }

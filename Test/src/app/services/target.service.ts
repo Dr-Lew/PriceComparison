@@ -31,7 +31,7 @@ export class TargetService {
     const options = {
       method: 'GET',
       headers: {
-        'X-RapidAPI-Key': '6b438322b0msh20f525a4f78f285p192ec0jsn260d72d28382',
+        'X-RapidAPI-Key': 'dde251992cmsh9374cc7b94588c3p16acf0jsn97d7bc574f02',
         'X-RapidAPI-Host': 'target1.p.rapidapi.com'
       }
     };
@@ -70,7 +70,7 @@ export class TargetService {
     const options = {
       method: 'GET',
       headers: {
-        'X-RapidAPI-Key': '6b438322b0msh20f525a4f78f285p192ec0jsn260d72d28382',
+        'X-RapidAPI-Key': 'dde251992cmsh9374cc7b94588c3p16acf0jsn97d7bc574f02',
         'X-RapidAPI-Host': 'target1.p.rapidapi.com'
       }
     };

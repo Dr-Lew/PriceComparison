@@ -19,9 +19,16 @@ export class GroceryCartService {
   constructor(private targetService : TargetService) { }
 
   async getCheapestPrices(shoppingCart: ShoppingCartItem[], stores: Store[] | null) {
-    for (let item of shoppingCart) {
-      await this.getCheapestPrice(item, stores);
+    //Reset cost arrays , just in case. This might not be needed
+    if(stores){
+      for(let store of stores){
+        store.itemCosts = [];
+      }
+      for (let item of shoppingCart) {
+        await this.getCheapestPrice(item, stores);
+      }
     }
+
   }
 
   async getCheapestPrice(shoppingCartItem : ShoppingCartItem, stores: Store[] | null){
@@ -30,8 +37,8 @@ export class GroceryCartService {
      let min_store: Store | null = null;
 
      if (stores) {
+
        for (let i = 0; i < stores.length; ++i) {
-        stores[i].itemCosts = [];
          let curr_store: Store = stores[i];
          let price = await this.targetService.getCost(shoppingCartItem.product.upc, curr_store.id.toString());
          curr_store.itemCosts.push(price);
@@ -73,11 +80,13 @@ export class GroceryCartService {
   }
 
   getCheapestStore(){
-    let total: number = 0;
+    let total: number;
     for(let store of UserSetupComponent.getListOfStores()){
+      total = 0;
       for(let cost of store.itemCosts){
         total += cost;
       }
+      console.log(store,total);
     }
   }
 }
