@@ -21,3 +21,8 @@ UI has test products with images, which the user could choose from the list of p
 or use a search button. That should help to navigate an user to the correct item quicker. Our web app
 includes a shopping list. Our user could press "Add" button and you could see the name of the
 product and quantity of them.
+
+<h2>Code Milestone 3 Notes</h2>
+Milestone three is focused on bringing the project completely together by adding a page that displays the contents of the user's shopping cart and 
+finding the cheapest price and where to buy each item. A database was also implemented that holds the products. The shopping list page of our application was updated to
+to display the items in the database and functionality for displaying only certain categories was also implemented to help the user find the product they need. 
