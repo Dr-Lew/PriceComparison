@@ -16,6 +16,10 @@ export class TargetService {
     console.log("Target Service: constructor() invoked");
   }
 
+  keys: String[] = [
+    'dde251992cmsh9374cc7b94588c3p16acf0jsn97d7bc574f02',
+    '6b438322b0msh20f525a4f78f285p192ec0jsn260d72d28382'
+  ]
 
   /**
    * The getStores() function takes a zip code and returns a list of stores near that zip code.
