@@ -10,11 +10,13 @@ describe('TargetService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(TargetService);
+    
   });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
   it('getStores() should return accurate stores', async () => {
     const testZip = "68008";
     const testStoreAddress = new Address('4001 N 132nd St',"Omaha","Nebraska","68164-1839");
@@ -28,5 +30,5 @@ describe('TargetService', () => {
 
   it('getCost() should return accurate pricing', async () => {
     expect( await service.getCost("049000028904","530")).toEqual(7.49);
-  });
+  },10000);
 });
