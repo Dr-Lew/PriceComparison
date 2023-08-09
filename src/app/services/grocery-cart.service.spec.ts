@@ -19,7 +19,7 @@ describe('GroceryCartService', () => {
   });
 
   it('getCheapestPrice() should return the correct price', async () => {
-    const testProduct = new Product("beverage","Coca Cola 12Pk","049000028904","/assets/cocacola-image-placeholder.jpg");
+    const testProduct = new Product("beverage","Coca Cola 12Pk","049000028904","12166733","/assets/cocacola-image-placeholder.jpg");
     let testShoppingItem = new ShoppingCartItem(testProduct);
     const testStoreAddress = new Address('4001 N 132nd St',"Omaha","Nebraska","68164-1839");
     const testStore = new Store(530,testStoreAddress,2);
