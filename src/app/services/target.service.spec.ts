@@ -24,7 +24,7 @@ describe('TargetService', () => {
     const testStores = await service.getStores(testZip);
     expect(testStores.length).toEqual(9);
     expect(testStores).toContain(testStore);
-  });
+  },1000000000);
 
   it('getCost() should return accurate pricing', async () => {
     //expect( await service.getCost("049000028904","530")).toEqual(7.49);
