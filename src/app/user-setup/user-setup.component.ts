@@ -87,16 +87,25 @@ export class UserSetupComponent {
     this.router.navigateByUrl('/shoppingList');
   }
 
-  testAddStore(store: Store){
-    UserSetupComponent.storeLocationsCtrl.value?.push(store);
-  }
+
 
   static getListOfStores(){
     if(this.storeLocationsCtrl.value){
       return this.storeLocationsCtrl.value;
     }
     else return [];
+  }
 
+  getListofStoresTest(){
+    return this.storeLocations;
+  }
 
+  testAddStore(store: Store){
+    this.storeLocations.push(store);
+    UserSetupComponent.storeLocationsCtrl.value?.push(store);
+  }
+
+  testWipeStores(){
+    this.storeLocations = [];
   }
 }

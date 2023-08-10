@@ -58,6 +58,7 @@ describe('ShoppingListComponent', () => {
     let testProduct: Product = new Product("dairy","Lactaid Lactose Free 2% Reduced Fat Milk","041383090103","10801608","/assets/Lactaid-image-placeholder.jpg");
     let testCartProduct: ShoppingCartItem = new ShoppingCartItem(testProduct);
     //Add test product and check it was added correctly
+    ShoppingCartComponent.shoppingCart = [];
     component.addToShoppingList(testProduct);
     expect(ShoppingCartComponent.shoppingCart[0]).toEqual(testCartProduct);
     //Add another product and check that the quantity increased
