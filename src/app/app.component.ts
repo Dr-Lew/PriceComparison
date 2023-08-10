@@ -8,7 +8,7 @@ import {Title} from '@angular/platform-browser';
 })
 
 export class AppComponent {
-  title = 'Shopping List';
+  title = 'Price Comparator';
   constructor(private titleService:Title){
 
   }

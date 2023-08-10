@@ -47,4 +47,7 @@ export class ShoppingCartComponent {
     return ShoppingCartComponent.shoppingCart;
   }
 
+
+
+
 }

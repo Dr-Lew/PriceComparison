@@ -17,7 +17,7 @@ describe('AppComponent', () => {
   it(`should have as title 'Shopping List'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('Shopping List');
+    expect(app.title).toEqual('Price Comparator');
   });
   
 });

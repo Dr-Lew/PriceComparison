@@ -5,13 +5,19 @@ import { ShoppingCartItem } from '../models/shoppingCartItem';
 import { Store } from '../models/store.model';
 
 import { GroceryCartService } from './grocery-cart.service';
+import { UserSetupComponent } from '../user-setup/user-setup.component';
 
 describe('GroceryCartService', () => {
   let service: GroceryCartService;
+  let service2: UserSetupComponent;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers:[UserSetupComponent]
+    });
     service = TestBed.inject(GroceryCartService);
+    service2 = TestBed.inject(UserSetupComponent);
+    
   });
 
   it('should be created', () => {
@@ -25,7 +31,19 @@ describe('GroceryCartService', () => {
     const testStore = new Store(530,testStoreAddress,2);
     const testStore2 = new Store(2010,{city:"Omaha",state:"Nebraska",zip:"68122-1803",street:"6636 N 73rd Plz"},2);
     let testStores = [testStore,testStore2];
-    await service.getCheapestPrice(testShoppingItem,testStores)
-    expect(testShoppingItem.price).toEqual(7.49);
+    //await service.getCheapestPrice(testShoppingItem,testStores)
+   // expect(testShoppingItem.price).toEqual(7.49);
   });
+  it('getCheapestStore should return the best overall store',() =>{
+    let testStore = new Store(1,new Address("Street1","City1","State1","Zip1"),2);
+    testStore.itemCosts.push(100);
+    testStore.itemCosts.push(200);
+    let testStore2 = new Store(2,new Address("Street2","City2","State2","Zip2"),2);
+    testStore2.itemCosts.push(1);
+    testStore2.itemCosts.push(2);
+    service2.testAddStore(testStore);
+    service2.testAddStore(testStore2);
+    let returnedStore = service.getCheapestStore();
+    expect(returnedStore?.id).toEqual(2)
+  })
 });

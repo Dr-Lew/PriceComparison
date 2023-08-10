@@ -82,7 +82,7 @@ export class GroceryCartService {
   getCheapestStore(){
     let total: number;
     let cheapestStore: Store | null = null;
-    let current_cheapestTotal = 0;
+    let current_cheapestTotal = 10000;
     for(let store of UserSetupComponent.getListOfStores()){
       total = 0;
       for(let cost of store.itemCosts){
@@ -99,5 +99,6 @@ export class GroceryCartService {
       }
     }
     console.log(cheapestStore,current_cheapestTotal);
+    return cheapestStore;
   }
 }

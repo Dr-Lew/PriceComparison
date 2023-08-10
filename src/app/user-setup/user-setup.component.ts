@@ -87,6 +87,10 @@ export class UserSetupComponent {
     this.router.navigateByUrl('/shoppingList');
   }
 
+  testAddStore(store: Store){
+    UserSetupComponent.storeLocationsCtrl.value?.push(store);
+  }
+
   static getListOfStores(){
     if(this.storeLocationsCtrl.value){
       return this.storeLocationsCtrl.value;

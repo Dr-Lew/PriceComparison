@@ -53,4 +53,8 @@ export class Database{
    return this.itemDb.filter((product) => product.cat === category);
  }
 
+ testAddProduct(product: Product){
+   this.itemDb.push(product);
+ }
+
 }
