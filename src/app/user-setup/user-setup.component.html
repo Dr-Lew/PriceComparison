@@ -1,18 +1,7 @@
 
-<!--
-<div class="top">
-  <mat-grid-list cols="1">
-    <mat-grid-tile><img id ="test" src="assets/marketing_img.jpg"></mat-grid-tile>
-  </mat-grid-list>
-</div>
--->
 
-<mat-toolbar color="primary">
-  <span style="font-size: x-large">Price Comparator</span>
-</mat-toolbar>
-
-<mat-toolbar>
-  <span style="font-size: large">User Setup</span>
+<mat-toolbar style="height: 200px; background-color: green">
+  <p style="font-size: 40px;">User Setup</p>
 </mat-toolbar>
 
 <div class="form">
@@ -35,7 +24,7 @@
         <ng-template matStepLabel>Select stores you shop at</ng-template>
         <mat-form-field>
           <mat-label>Supported Stores</mat-label>
-          <mat-select ngDefaultControl formControlName="storesCtrl" multiple>
+          <mat-select formControlName="storesCtrl" multiple>
             <mat-option *ngFor="let storeType of supportedStoreTypes" [value]="storeType">{{storeType}}</mat-option>
           </mat-select>
         </mat-form-field>
@@ -51,8 +40,8 @@
         <ng-template matStepLabel>Select store locations</ng-template>
         <mat-form-field>
           <mat-label>Store Locations</mat-label>
-          <mat-select ngDefaultControl formControlName="storeLocationsCtrl" multiple>
-            <mat-option *ngFor="let store of storeLocations" [value]="store">{{store.id}}</mat-option>
+          <mat-select formControlName="storeLocationsCtrl" multiple>
+            <mat-option *ngFor="let store of storeLocations" [value]="store">{{store.toString()}}</mat-option>
           </mat-select>
         </mat-form-field>
         <div>

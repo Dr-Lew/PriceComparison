@@ -1,25 +1,31 @@
-<table id="products" style="margin-top: 50px;">
+<mat-toolbar style="height: 200px; background-color: green">
+  <p style="font-size: 40px;">Shopping Cart</p>
+</mat-toolbar>
+
+<div style="margin-left: 200px; margin-right: 200px">
+  <table id="products" style="margin-top: 50px;">
     <thead>
-      <tr>
-        <th colspan="5" style="text-align: center; font-size: 20px;">SHOPPING CART</th>
-      </tr>
-      <tr>
-        <th>#</th>
-        <th>Item Name</th>
-        <th>Item Count</th>
-        <th>Store</th>
-        <th>Price</th>
-      </tr>
+    <tr>
+      <th>#</th>
+      <th>Item Name</th>
+      <th>Item Count</th>
+      <th>Store</th>
+      <th>Price</th>
+    </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of getCart() let i = index">
-        <td>{{ i + 1 }}</td>
-        <td>{{ item.product.name }}</td>
-        <td>{{ item.quantity }}</td>
-        <td>{{ item.store?.id }}</td>
-        <td>{{ item.price }}</td>
-      </tr>
+    <tr *ngFor="let item of getCart() let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ item.product.name }}</td>
+      <td>{{ item.quantity }}</td>
+      <td [ngStyle] = "{'background-color': item.store?.storeType == StoreType.Target ? 'red' : 'blue'}">{{ item.store?.toString()}}</td>
+      <td>{{ item.price }}</td>
+    </tr>
     </tbody>
-    </table>
+  </table>
+  <p>Total Cost: {{totalCartCost}}</p>
+  <p>Cheapest store to shop at: {{cheapest[0]?.toString()}} for {{cheapest[1]}}</p>
+</div>
+
 <button (click)="run()">Find Cheapest Prices</button>
 <button (click)="back()">Go back</button>

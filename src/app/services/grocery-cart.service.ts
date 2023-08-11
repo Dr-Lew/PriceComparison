@@ -4,7 +4,8 @@ import {Store} from '../models/store.model';
 import {Address} from "../models/address.model";
 import {TargetService} from "./target.service";
 import {ShoppingCartItem} from "../models/shoppingCartItem";
-import { UserSetupComponent } from '../user-setup/user-setup.component';
+import {UserSetupComponent} from '../user-setup/user-setup.component';
+import {WalmartService} from "./walmart.service";
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ import { UserSetupComponent } from '../user-setup/user-setup.component';
 export class GroceryCartService {
   // TODO: needs to be updated. Just wanted to move things around.
 
-  constructor(private targetService : TargetService) { }
+  constructor(private targetService : TargetService, private walmartService : WalmartService) { }
 
   async getCheapestPrices(shoppingCart: ShoppingCartItem[], stores: Store[] | null) {
     //Reset cost arrays , just in case. This might not be needed
@@ -40,7 +41,15 @@ export class GroceryCartService {
 
        for (let i = 0; i < stores.length; ++i) {
          let curr_store: Store = stores[i];
-         let price = await this.targetService.getCost(shoppingCartItem.product.upc, curr_store.id.toString());
+         let price = 0;
+         if (curr_store.storeType == StoreType.Walmart) {
+           price = await this.walmartService.getCost(shoppingCartItem.product.walcode);
+         } else if (curr_store.storeType == StoreType.Target) {
+           price = await this.targetService.getCost(shoppingCartItem.product.upc, curr_store.id.toString());
+         } else {
+           console.error("Unknown store type - this should never happen");
+         }
+
          curr_store.itemCosts.push(price);
          if (price < min_price && price != -1) {
            min_price = price;
@@ -79,10 +88,12 @@ export class GroceryCartService {
     return itemA.store.id - itemB.store.id;
   }
 
-  getCheapestStore(){
+  getCheapestStore(): [Store | null, number] {
     let total: number;
     let cheapestStore: Store | null = null;
-    let current_cheapestTotal = 10000;
+
+    //Some absurd number
+    let current_cheapestTotal = 1000000;
     for(let store of UserSetupComponent.getListOfStores()){
       total = 0;
       for(let cost of store.itemCosts){
@@ -98,7 +109,9 @@ export class GroceryCartService {
         cheapestStore = store;
       }
     }
-    console.log(cheapestStore,current_cheapestTotal);
-    return cheapestStore;
+
+    console.log(current_cheapestTotal);
+    return [cheapestStore, current_cheapestTotal];
+
   }
 }
