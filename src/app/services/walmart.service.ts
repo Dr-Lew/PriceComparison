@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Store} from "../models/store.model";
 import {StoreType} from "../models/storeTypes";
 import {Address} from "../models/address.model";
+import { getJson } from "serpapi";
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,16 @@ export class WalmartService {
     const obj = JSON.parse(data);
 
     let price = obj.product.buybox_winner.price;
+
+    const respons2 = await getJson({
+      engine: "google",
+      api_key: "API_KEY", // Get your API_KEY from https://serpapi.com/manage-api-key
+      q: "coffee",
+      location: "Austin, Texas",
+    });
+    //console.log(response);
+
+
     return price;
   }
 
