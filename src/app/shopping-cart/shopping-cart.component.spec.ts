@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import {MatToolbarModule} from "@angular/material/toolbar";
 import { ShoppingCartComponent } from './shopping-cart.component';
 import { Product } from '../models/product.model';
 import { ShoppingCartItem } from '../models/shoppingCartItem';
@@ -10,7 +11,8 @@ describe('ShoppingCartComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ShoppingCartComponent]
+      declarations: [ShoppingCartComponent],
+      imports: [MatToolbarModule]
     });
     fixture = TestBed.createComponent(ShoppingCartComponent);
     component = fixture.componentInstance;
