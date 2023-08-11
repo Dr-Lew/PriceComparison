@@ -31,6 +31,7 @@ export class UserSetupComponent {
   zipcodeCtrl:        FormControl<string | null>   = new FormControl('', Validators.required);
   storesCtrl:         FormControl<string[] | null> = new FormControl([], Validators.required);
   private static storeLocationsCtrl: FormControl<Store[] | null>  = new FormControl([], Validators.required);
+  initalValues = UserSetupComponent.storeLocationsCtrl.value;
 
   zipcodeFormGroup      = this.formBuilder.group({
     zipcodeCtrl: this.zipcodeCtrl
@@ -100,8 +101,7 @@ export class UserSetupComponent {
   }
 
   getListofStoresTest(){
-    this.storeLocations = UserSetupComponent.getListOfStores();
-    return this.storeLocations;
+    return  this.storeLocations;
   }
 
   testAddStore(store: Store){
@@ -110,6 +110,7 @@ export class UserSetupComponent {
   }
 
   testWipeStores(){
+    UserSetupComponent.storeLocationsCtrl.reset(this.initalValues);
     this.storeLocations = [];
   }
 }
