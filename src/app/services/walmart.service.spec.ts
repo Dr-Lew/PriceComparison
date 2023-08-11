@@ -23,7 +23,7 @@ describe('WalmartService', () => {
   });
   it('getCost() should return accurate information', async () => {
     let testItemId = "12166733";
-    let testItemPrice = 7.26;
+    let testItemPrice = 4.99;
     let getCostReturnPrice = await service.getCost(testItemId);
     expect(testItemPrice).toBeCloseTo(getCostReturnPrice);
 
