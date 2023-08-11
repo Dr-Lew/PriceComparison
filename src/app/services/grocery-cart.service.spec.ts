@@ -17,7 +17,7 @@ describe('GroceryCartService', () => {
     });
     service = TestBed.inject(GroceryCartService);
     service2 = TestBed.inject(UserSetupComponent);
-    
+
   });
 
   it('should be created', () => {
@@ -44,6 +44,6 @@ describe('GroceryCartService', () => {
     service2.testAddStore(testStore);
     service2.testAddStore(testStore2);
     let returnedStore = service.getCheapestStore();
-    expect(returnedStore?.id).toEqual(2)
+    expect(returnedStore[0]?.id).toEqual(2)
   })
 });
