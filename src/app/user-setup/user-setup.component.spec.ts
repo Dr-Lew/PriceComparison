@@ -29,6 +29,7 @@ describe('UserSetupComponent', () => {
 
     it('getListOfStores() should return the correct list of stores', () => {
       let store: Store = new Store(1,new Address("1","1","1","1"),2);
+      component.testWipeStores();
     component.testAddStore(store);
     expect(component.getListofStoresTest()).toEqual([store])
   });

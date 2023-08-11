@@ -100,7 +100,8 @@ export class UserSetupComponent {
   }
 
   getListofStoresTest(){
-    return UserSetupComponent.getListOfStores();
+    this.storeLocations = UserSetupComponent.getListOfStores();
+    return this.storeLocations;
   }
 
   testAddStore(store: Store){
