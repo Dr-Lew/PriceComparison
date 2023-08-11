@@ -4,6 +4,8 @@ import { GroceryCartService } from '../services/grocery-cart.service';
 import { ShoppingCartItem } from "../models/shoppingCartItem";
 import { UserSetupComponent } from "../user-setup/user-setup.component";
 import { TargetService } from '../services/target.service';
+import {StoreType} from "../models/storeTypes";
+import {Store} from "../models/store.model";
 
 
 @Component({
@@ -20,9 +22,11 @@ import { TargetService } from '../services/target.service';
 export class ShoppingCartComponent {
   static shoppingCart: ShoppingCartItem[] = [];
   totalCartCost : number;
+  cheapest: [null | Store, number];
 
   constructor(private router: Router, private cartService: GroceryCartService, private targetService: TargetService) {
     this.totalCartCost = 0;
+    this.cheapest = [null, 0];
   }
 
   ngOnInit() {
@@ -35,16 +39,20 @@ export class ShoppingCartComponent {
 
   async run(){
     await this.cartService.getCheapestPrices(ShoppingCartComponent.shoppingCart, UserSetupComponent.getListOfStores());
-   //await  this.cartService.sortShoppingCart(ShoppingCartComponent.shoppingCart);
-   await  this.cartService.getCheapestStore();
+
+    let cheapest  = this.cartService.getCheapestStore();
+    this.cheapest[0] = cheapest[0];
+    this.cheapest[1] = Math.round(cheapest[1] * 100) / 100;
 
     for (let item of ShoppingCartComponent.shoppingCart) {
       this.totalCartCost += item.price;
     }
+    this.totalCartCost = Math.round(this.totalCartCost * 100) / 100;
 
   }
   getCart(){
     return ShoppingCartComponent.shoppingCart;
   }
 
+  protected readonly StoreType = StoreType;
 }

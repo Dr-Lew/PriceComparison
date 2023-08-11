@@ -60,16 +60,19 @@ export class UserSetupComponent {
     if (selectedStores != null && zipcode != null) {
       for (let i = 0; i < selectedStores.length; i++) {
         if(selectedStores[i] === 'Walmart') {
-          this.storeLocations = this.storeLocations.concat(this.walmartService.getStores(zipcode));
+          let stores = this.walmartService.getStores(zipcode);
+          if (stores != null) {
+            this.storeLocations = this.storeLocations.concat(stores);
+          }
         } else if (selectedStores[i] === 'Target') {
           this.storeLocations = this.storeLocations.concat(await this.targetService.getStores(zipcode));
         }
       }
     }
 
-    for (let s of this.storeLocations) {
-      console.log(s.id);
-    }
+    // for (let s of this.storeLocations) {
+    //   console.log(s.id);
+    // }
   }
 
   /**

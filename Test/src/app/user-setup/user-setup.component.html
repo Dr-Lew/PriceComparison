@@ -1,18 +1,7 @@
 
-<!--
-<div class="top">
-  <mat-grid-list cols="1">
-    <mat-grid-tile><img id ="test" src="assets/marketing_img.jpg"></mat-grid-tile>
-  </mat-grid-list>
-</div>
--->
 
-<mat-toolbar color="primary">
-  <span style="font-size: x-large">Price Comparator</span>
-</mat-toolbar>
-
-<mat-toolbar>
-  <span style="font-size: large">User Setup</span>
+<mat-toolbar style="height: 200px; background-color: green">
+  <p style="font-size: 40px;">User Setup</p>
 </mat-toolbar>
 
 <div class="form">
@@ -52,7 +41,7 @@
         <mat-form-field>
           <mat-label>Store Locations</mat-label>
           <mat-select formControlName="storeLocationsCtrl" multiple>
-            <mat-option *ngFor="let store of storeLocations" [value]="store">{{store.id}}</mat-option>
+            <mat-option *ngFor="let store of storeLocations" [value]="store">{{store.toString()}}</mat-option>
           </mat-select>
         </mat-form-field>
         <div>

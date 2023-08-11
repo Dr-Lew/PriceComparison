@@ -16,4 +16,14 @@ export class Store {
     this.storeType = storeType;
     this.itemCosts = [];
   }
+
+  toString() {
+    if (this.storeType == StoreType.Walmart) {
+      return "Walmart - " + this.address.street;
+    } else if (this.storeType == StoreType.Target) {
+      return "Target  - " + this.address.street;
+    } else {
+      return this.address.street;
+    }
+  }
 }

@@ -8,3 +8,7 @@
   height: 100%;
   width: 100%;
 }
+
+::ng-deep .mat-step-header .mat-step-icon-selected{
+  background-color: green;
+}
