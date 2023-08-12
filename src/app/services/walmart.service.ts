@@ -24,6 +24,9 @@ export class WalmartService {
     const obj = JSON.parse(data);
 
     let price = obj.product.buybox_winner.price;
+
+
+
     return price;
   }
 

@@ -106,6 +106,7 @@ export class GroceryCartService {
         }
       }
       else{
+        current_cheapestTotal = total;
         cheapestStore = store;
       }
     }

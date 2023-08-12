@@ -24,7 +24,7 @@ export class ShoppingCartComponent {
   totalCartCost : number;
   cheapest: [null | Store, number];
 
-  constructor(private router: Router, private cartService: GroceryCartService, private targetService: TargetService) {
+  constructor(private router: Router, private cartService: GroceryCartService) {
     this.totalCartCost = 0;
     this.cheapest = [null, 0];
   }

@@ -18,7 +18,7 @@
       <td>{{ i + 1 }}</td>
       <td>{{ item.product.name }}</td>
       <td>{{ item.quantity }}</td>
-      <td [ngStyle] = "{'background-color': item.store?.storeType == StoreType.Target ? 'red' : 'blue'}">{{ item.store?.toString()}}</td>
+      <td [ngStyle] = "{'background-color': item.store?.storeType == StoreType.Target ? '#FFCCCB' : '#ADD8E6'}">{{ item.store?.toString()}}</td>
       <td>{{ item.price }}</td>
     </tr>
     </tbody>
