@@ -26,3 +26,6 @@ product and quantity of them.
 Milestone three is focused on bringing the project completely together by adding a page that displays the contents of the user's shopping cart and 
 finding the cheapest price and where to buy each item. A database was also implemented that holds the products. The shopping list page of our application was updated to
 to display the items in the database and functionality for displaying only certain categories was also implemented to help the user find the product they need. 
+
+<h2>Code Milestone 4 Notes</h2>
+Milestone 4 is focused on wrapping the project up. Specifically, styling was applied to clean up the front end. The Walmart API was also integrated to support Walmart stores. Finally the shopping cart page was updated to display the total of the cart as well as the store to shop at to save the most money. This milestone concludes our project. The user can select a zip code and stores they shop at, make a shopping cart of products, and find where to buy each product.
